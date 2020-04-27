@@ -20,7 +20,7 @@
 .phpunit.result.cache
 ###< symfony/phpunit-bridge ###
 
-.env.dev
+.env.locale
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
@@ -30,4 +30,4 @@
 /var/
 
 ###< symfony/framework-bundle ###
-.idea/
+.idea
