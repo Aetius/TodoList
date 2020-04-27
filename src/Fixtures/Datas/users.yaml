@@ -1,0 +1,5 @@
+App\Entity\User:
+    user_1:
+        username: demo
+        email: demo@demo.fr
+        password: demo

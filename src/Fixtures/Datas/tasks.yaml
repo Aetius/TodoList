@@ -1,0 +1,4 @@
+App\Entity\Task:
+    task_{1..10}:
+        title: title.<current()>
+        content: testesttest.
