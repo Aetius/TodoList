@@ -14,3 +14,20 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+
+###> symfony/phpunit-bridge ###
+.phpunit
+.phpunit.result.cache
+###< symfony/phpunit-bridge ###
+
+.env.locale
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+
+###< symfony/framework-bundle ###
+.idea
