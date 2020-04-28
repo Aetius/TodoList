@@ -4,6 +4,7 @@ namespace Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Tests\Config\Config;
 use Tests\Repository\UserRepositoryTest;
 use Tests\Security\Connexion;
 
@@ -32,6 +33,6 @@ class DefaultControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->client->getResponse()->isRedirect("/login");
+        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
     }
 }

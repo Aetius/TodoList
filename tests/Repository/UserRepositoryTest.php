@@ -22,7 +22,6 @@ trait UserRepositoryTest
             ->get('doctrine')
             ->getManager();
 
-
         $user = $entityManager
             ->getRepository(User::class)
             ->findLast();
