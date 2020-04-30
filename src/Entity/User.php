@@ -8,8 +8,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
+ * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
+ *
  * @ORM\Table("user")
- * @ORM\Entity
  * @UniqueEntity("email")
  */
 class User implements UserInterface
@@ -28,7 +29,7 @@ class User implements UserInterface
     private $username;
 
     /**
-     * @ORM\Column(type="string", length=64)
+     * @ORM\Column(type="string", length=255)
      */
     private $password;
 
@@ -56,7 +57,6 @@ class User implements UserInterface
 
     public function getSalt()
     {
-        return null;
     }
 
     public function getPassword()

@@ -1,6 +1,8 @@
 security:
     encoders:
-        App\Entity\User: auto
+        App\Entity\User:
+            algorithm: auto
+            cost: 13
 
     providers:
         doctrine:
@@ -12,16 +14,17 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-
         main:
             anonymous: ~
             pattern: ^/
             form_login:
                 login_path: login
-                check_path: login_check
-                always_use_default_target_path:  true
+                check_path: login
+                always_use_default_target_path: true
                 default_target_path:  /
-            logout: ~
+            logout:
+                path: /logout
+                target: /
             guard:
                 authenticators:
                     - App\Security\LoginFormAuthenticator
