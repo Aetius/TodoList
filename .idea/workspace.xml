@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Config/Config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Security/SecurityControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TodoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TodoList.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Security/Connexion.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" beforeDir="false" afterPath="$PROJECT_DIR$/public/.htaccess" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fixtures/Faker/Processor/UserProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Processor/UserProcessor.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,23 +134,24 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../P7/BileMo" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../P6/SnowTricks/SnowTricks" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\P8\TodoList\tests\Security" />
-      <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures\Datas" />
-      <recent name="C:\wamp64\www\P8\TodoList\tests" />
-      <recent name="C:\wamp64\www\P8\TodoList\src" />
-      <recent name="C:\wamp64\www\P8\TodoList\src\AppBundle" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P8\TodoList\config\routes\prod" />
+      <recent name="C:\wamp64\www\P8\TodoList\config\packages\prod" />
       <recent name="C:\wamp64\www\P8\TodoList\public" />
       <recent name="C:\wamp64\www\P8\TodoList\config\routes\dev" />
       <recent name="C:\wamp64\www\P8\TodoList\templates" />
-      <recent name="C:\wamp64\www\P8\TodoList\config\packages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P8\TodoList\tests" />
+      <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures" />
+      <recent name="C:\wamp64\www\P8\TodoList\tests\Security" />
+      <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures\Datas" />
+      <recent name="C:\wamp64\www\P8\TodoList\src" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml.dist">
@@ -211,6 +196,12 @@
       <workItem from="1587966885850" duration="10894000" />
       <workItem from="1587991189432" duration="25000" />
       <workItem from="1587991396327" duration="37910000" />
+      <workItem from="1588144469443" duration="58000" />
+      <workItem from="1588148714646" duration="8000" />
+      <workItem from="1588149512897" duration="184000" />
+      <workItem from="1588160921876" duration="253000" />
+      <workItem from="1588164484650" duration="7132000" />
+      <workItem from="1588173090720" duration="11638000" />
     </task>
     <servers />
   </component>
@@ -256,32 +247,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1218" y="435" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1587285426462" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1587992539417">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1588234213954">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1587992539417" />
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588234213954" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587392795625" />
-    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588087217392">
+    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588173234165">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588087217392" />
+    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588173234165" />
     <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330330219" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1587976677749">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1587976677749" />
     <state x="794" y="443" key="NewPhpFileDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587292016539" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1587238467185">
+    <state x="461" y="164" key="SettingsEditor" timestamp="1588231748551">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588231748551" />
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1587238467185" />
     <state x="2888" y="366" key="com.intellij.ide.util.TipDialog" timestamp="1586703219296">
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state x="2888" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1586703219296" />
-    <state x="2409" y="473" width="974" height="451" maximized="true" key="dock-window-1" timestamp="1588109404957">
-      <screen x="1920" y="34" width="1680" height="1010" />
+    <state x="2409" y="473" width="974" height="451" maximized="true" key="dock-window-1" timestamp="1588144526571">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="2409" y="473" width="974" height="451" maximized="true" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588109404957" />
     <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1587970639792">

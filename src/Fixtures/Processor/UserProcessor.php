@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\Fixtures\Faker\Processor;
+namespace App\Fixtures\Processor;
 
 
 use App\Entity\User;
