@@ -19,6 +19,7 @@
         "dama/doctrine-test-bundle": "^6.3",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-cache-bundle": "^1.2",
+        "doctrine/doctrine-migrations-bundle": "^2.1",
         "doctrine/orm": "^2.5",
         "hautelook/alice-bundle": "^2.7",
         "liip/test-fixtures-bundle": "^1.7",

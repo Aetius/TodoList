@@ -27,7 +27,11 @@ security:
                 target: /
             guard:
                 authenticators:
-                    - App\Security\LoginFormAuthenticator
+                    - App\Security\Authenticator\LoginFormAuthenticator
+
+    role_hierarchy:
+        ROLE_ADMIN: [ROLE_USER, ROLE_ALLOWED_TO_SWITCH]
+
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
