@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Task.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fixtures/Datas/tasks.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Datas/tasks.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -206,7 +212,8 @@
       <workItem from="1588164484650" duration="7132000" />
       <workItem from="1588173090720" duration="12239000" />
       <workItem from="1588237640046" duration="20655000" />
-      <workItem from="1588312811717" duration="6238000" />
+      <workItem from="1588312811717" duration="7139000" />
+      <workItem from="1588326085871" duration="4450000" />
     </task>
     <servers />
   </component>
@@ -258,10 +265,14 @@
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588238653496" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587392795625" />
-    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588269014069">
+    <state x="540" y="254" key="IDE.errors.dialog" timestamp="1588326063980">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588269014069" />
+    <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588326063980" />
+    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588326946951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588326946951" />
     <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330330219" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1587976677749">
       <screen x="0" y="0" width="1920" height="1040" />
