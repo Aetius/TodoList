@@ -22,7 +22,7 @@ class TaskVoter extends Voter
 
     protected function supports($attribute, $subject)
     {
-        if (!in_array($attribute, ['task'])){
+        if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])){
             return false;
         }
 
@@ -43,17 +43,32 @@ class TaskVoter extends Voter
             return false;
         }
 
-        // ... (check conditions and return true to grant permission) ...
         switch ($attribute) {
-            case 'task':
-                if(in_array("ROLE_USER", $user->getRoles())){
+            case 'task_edit':
+                if($this->security->isGranted("ROLE_USER") && $subject->getUser()->getId() === $user->getId()){
                     return true;
                 }
                 break;
-            case 'POST_VIEW':
-                // logic to determine if the user can VIEW
-                // return true or false
+
+                case 'task_create':
+                if($this->security->isGranted("ROLE_USER")){
+                    return true;
+                }
                 break;
+
+            case 'task_delete':
+                if($subject->getUser()->getId() === $user->getId()){
+                    return true;
+                }
+                if($subject->getUser()->getRoles() && $this->security->isGranted("ROLE_ADMIN")){
+                    return true;
+                    }
+                break;
+
+            case 'task_show':
+                if($this->security->isGranted("ROLE_USER")){
+                    return true;
+                }
         }
 
         return false;

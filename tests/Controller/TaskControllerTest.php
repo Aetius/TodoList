@@ -7,6 +7,7 @@ namespace Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Config\Config;
+use Tests\Repository\TaskRepositoryTest;
 use Tests\Repository\UserRepositoryTest;
 use Tests\Security\Connexion;
 
@@ -15,6 +16,7 @@ class TaskControllerTest extends WebTestCase
 
     use Connexion;
     use UserRepositoryTest;
+    use TaskRepositoryTest;
 
     /**
      *@var  KernelBrowser
@@ -103,7 +105,8 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $crawler = $this->client->request('GET', '/tasks/1/edit');
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $crawler = $this->client->request('GET', "/tasks/$task/edit");
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $button = $crawler->selectButton('Modifier');
@@ -125,7 +128,8 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $crawler = $this->client->request('GET', '/tasks/1/edit');
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $crawler = $this->client->request('GET', "/tasks/$task/edit");
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
@@ -159,13 +163,29 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+
         $this->client->request(
             'POST',
-            '/tasks/1/delete',
+            "/tasks/$task/delete",
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
+    }
+
+    public function testDeleteTaskActionNokWrongUserForTask()
+    {
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+
+        $this->client->request(
+            'POST',
+            "/tasks/1/delete",
+            [],
+        );
+        $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
+
     }
 
     public function testDeleteTaskActionNokWithoutAuthorization()
@@ -186,19 +206,32 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
         $this->client->request(
-            'POST',
-            '/tasks/1/toggle',
+            'GET',
+            "/tasks/$task/toggle",
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
 
+    public function testToggleTaskActionNokWrongUser()
+    {
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+        $this->client->request(
+            'GET',
+            '/tasks/1/toggle',
+            [],
+        );
+        $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
+    }
+
     public function testToggleTaskActionNokWithoutAuthorization()
     {
         $this->client->request(
-            'POST',
+            'GET',
             '/tasks/1/toggle',
             [],
         );
