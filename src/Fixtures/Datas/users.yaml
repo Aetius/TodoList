@@ -3,7 +3,9 @@ App\Entity\User:
         username: demo
         email: demo@demo.fr
         password: demo
+        roles: ["ROLE_ADMIN"]
     user_2:
         username: demo2
         email: demo2@demo.fr
         password: demo
+        roles: ["ROLE_USER"]

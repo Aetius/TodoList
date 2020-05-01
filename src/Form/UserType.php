@@ -3,14 +3,27 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
+use Symfony\Component\Security\Core\Security;
 
 class UserType extends AbstractType
 {
+
+    /**
+     * @var Security
+     */
+    private $security;
+
+    public function __construct(Security $security)
+    {
+        $this->security = $security;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -24,5 +37,15 @@ class UserType extends AbstractType
             ])
             ->add('email', EmailType::class, ['label' => 'Adresse email'])
         ;
+
+        if ($this->security->isGranted("form_user")){
+            $builder->add('roles', ChoiceType::class, [
+                'choices' => [
+                    'Role utilisateur' => 'ROLE_USER',
+                    'Role administrateur' => 'ROLE_ADMIN'
+                ],
+                'mapped'=>false
+            ]);
+        }
     }
 }

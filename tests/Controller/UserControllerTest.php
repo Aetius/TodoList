@@ -28,7 +28,8 @@ class UserControllerTest extends WebTestCase
 /*****  Tests users action : display the list of all users  *******/
     public function testListAction()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
+        $this->setAuthorization($this->client, $user);
         $this->client->request('GET', '/users');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -40,10 +41,18 @@ class UserControllerTest extends WebTestCase
         $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
     }
 
-/**** create Actions   *****/
-    public function testCreateActionOk()
+    public function testListActionNokWithRoleUser()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findOneByName($this->client, Config::ROLE_USER);
+        $this->setAuthorization($this->client, $user);
+        $this->client->request('GET', '/users');
+        $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+    }
+
+/**** create Actions   *****/
+    public function testCreateActionOkWithoutRole()
+    {
         $crawler = $this->client->request('GET', '/users/create');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
@@ -57,9 +66,29 @@ class UserControllerTest extends WebTestCase
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }
 
+    public function testCreateActionOkWithRoleAdmin()
+    {
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
+        $this->setAuthorization($this->client, $user);
+        $crawler = $this->client->request('GET', '/users/create');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+        $button = $crawler->selectButton('Ajouter');
+        $form = $button->form();
+        $form["user[username]"] = "test";
+        $form["user[password][first]"] = "test";
+        $form["user[password][second]"] = "test";
+        $form["user[email]"] = "test@test.fr";
+        $form["user[roles]"] = "ROLE_ADMIN";
+
+        $this->client->submit($form);
+        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+    }
+
     public function testCreateActionNokUserAlreadyUsed()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/create');
 
         $button = $crawler->selectButton('Ajouter');
@@ -74,7 +103,8 @@ class UserControllerTest extends WebTestCase
 
     public function testCreateActionNokEmailAlreadyUsed()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/create');
 
         $button = $crawler->selectButton('Ajouter');
@@ -89,7 +119,8 @@ class UserControllerTest extends WebTestCase
 
     public function testCreateActionNokPasswordFailed()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/create');
 
         $button = $crawler->selectButton('Ajouter');
@@ -102,20 +133,39 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
-    public function testCreateActionGetPageWithoutAuthorization()
+/*    public function testCreateActionGetPageWithoutAuthorization()
     {
         $this->client->request('GET', '/users/create');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
-    }
+    }*/
 
 
 
 /**** Edit Actions   *****/
-    public function testEditActionOk()
+    public function testEditActionOkRoleAdmin()
     {
-        $this->setAuthorization($this->client);
-        $crawler = $this->client->request('GET', '/users/1/edit');
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN );
+        $this->setAuthorization($this->client, $user);
+        $crawler = $this->client->request('GET', '/users/2/edit');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+        $button = $crawler->selectButton('Modifier');
+        $form = $button->form();
+        $form["user[username]"] = "demo2";
+        $form["user[password][first]"] = "demo";
+        $form["user[password][second]"] = "demo";
+        $form["user[email]"] = "demo2@demo.fr";
+        $form["user[roles]"] = "ROLE_ADMIN";
+        $this->client->submit($form);
+        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+    }
+
+    public function testEditActionOkRoleUser()
+    {
+        $user = $this->findOneByName($this->client, Config::ROLE_USER );
+        $this->setAuthorization($this->client, $user);
+        $crawler = $this->client->request('GET', '/users/2/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $button = $crawler->selectButton('Modifier');
@@ -128,9 +178,42 @@ class UserControllerTest extends WebTestCase
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }
 
+    public function testEditActionNokRoleUserTryChangeRole()
+    {
+        $user = $this->findOneByName($this->client, Config::ROLE_USER );
+        $this->setAuthorization($this->client, $user);
+
+        $crawler = $this->client->request('GET', '/users/2/edit');
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+
+
+        $token = ($this->client->getContainer()->get('security.csrf.token_manager')->getToken('user')->getValue());
+        $this->client->request(
+            'POST',
+            '/users/2/edit',
+            [
+                'user'=>[
+                    'username'=>'demo2',
+                    "password"=>[
+                        "first" =>'demo',
+                        "second"=>'demo'
+                    ],
+                    'email'=> 'demo2@demo.fr',
+                    'roles'=> 'ROLE_ADMIN',
+                    '_token'=>$token
+                ]
+            ],
+        );
+
+        $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
+    }
+//This form should not contain extra fields.
+
+
     public function testEditActionNokUserAlreadyUsed()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/1/edit');
 
         $button = $crawler->selectButton('Modifier');
@@ -145,7 +228,8 @@ class UserControllerTest extends WebTestCase
 
     public function testEditActionNokEmailAlreadyUsed()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/1/edit');
 
         $button = $crawler->selectButton('Modifier');
@@ -160,7 +244,8 @@ class UserControllerTest extends WebTestCase
 
     public function testEditActionNokPasswordFalse()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/1/edit');
 
         $button = $crawler->selectButton('Modifier');
