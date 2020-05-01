@@ -24,7 +24,8 @@ class DefaultControllerTest extends WebTestCase
 
     public function testHomepage()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $this->client->request('GET', '/');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }

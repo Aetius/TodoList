@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 trait UserRepositoryTest
 {
+
     /**
      * @param KernelBrowser $client
      * @return User|null
@@ -27,6 +28,28 @@ trait UserRepositoryTest
             ->findLast();
         return $user;
     }
+
+
+    /**
+     * @param KernelBrowser $client
+     * @param string $name
+     * @return User|null
+     */
+    public function findOneByName(KernelBrowser $client, string $name)
+    {
+        $kernel = $client->getKernel();
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = $kernel->getContainer()
+            ->get('doctrine')
+            ->getManager();
+
+        $user = $entityManager
+            ->getRepository(User::class)
+            ->findOneByName($name);
+        return $user;
+    }
+
+
 
 
 }

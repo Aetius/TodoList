@@ -18,12 +18,10 @@ trait Connexion
     private $user;
 
 
-    public function setAuthorization(KernelBrowser $client, User $user = null)
+    public function setAuthorization(KernelBrowser $client, User $user )
     {
-        $this->user = ($user !== null) ? $user : $this->findLastUser($client);
-
         $session = $client->getContainer()->get('session');
-        $token = new UsernamePasswordToken($this->user, null, 'main', ['ROLE_USER']);
+        $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());
         $session->set('_security_main', serialize($token));
         $session->save();
         $cookie = new Cookie($session->getName(), $session->getId());

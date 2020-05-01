@@ -29,7 +29,9 @@ class TaskControllerTest extends WebTestCase
 /****  Task list  ****/
     public function testListActionOk()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+
         $this->client->request('GET', '/tasks');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -44,7 +46,8 @@ class TaskControllerTest extends WebTestCase
 /**** task create  ****/
     public function testCreateActionOk()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/tasks/create');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
@@ -83,7 +86,8 @@ class TaskControllerTest extends WebTestCase
 
     public function testCreateActionNokDatasEmpty()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/tasks/create');
 
         $button = $crawler->selectButton('Ajouter');
@@ -97,7 +101,8 @@ class TaskControllerTest extends WebTestCase
 /****  task edit  ****/
     public function testEditActionOk()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/tasks/1/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
@@ -118,7 +123,8 @@ class TaskControllerTest extends WebTestCase
 
     public function testEditActionNokDatasEmpty()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/tasks/1/edit');
 
         $button = $crawler->selectButton('Modifier');
@@ -151,7 +157,8 @@ class TaskControllerTest extends WebTestCase
 /**** Delete Task ****/
     public function testDeleteTaskActionOk()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $this->client->request(
             'POST',
             '/tasks/1/delete',
@@ -177,7 +184,8 @@ class TaskControllerTest extends WebTestCase
 
     public function testToggleTaskActionOk()
     {
-        $this->setAuthorization($this->client);
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
         $this->client->request(
             'POST',
             '/tasks/1/toggle',

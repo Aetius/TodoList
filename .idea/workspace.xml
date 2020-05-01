@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Config/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Config/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Security/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Security/Connexion.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +212,7 @@
       <workItem from="1588164484650" duration="7132000" />
       <workItem from="1588173090720" duration="12239000" />
       <workItem from="1588237640046" duration="20655000" />
-      <workItem from="1588312811717" duration="2369000" />
+      <workItem from="1588312811717" duration="5423000" />
     </task>
     <servers />
   </component>
@@ -283,10 +287,10 @@
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state x="2888" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1586703219296" />
-    <state x="2409" y="473" width="974" height="451" maximized="true" key="dock-window-1" timestamp="1588144526571">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="2077" y="14" width="1565" height="912" key="dock-window-1" timestamp="1588318102943">
+      <screen x="1920" y="34" width="1680" height="1010" />
     </state>
-    <state x="2409" y="473" width="974" height="451" maximized="true" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588109404957" />
+    <state x="2077" y="14" width="1565" height="912" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588318102943" />
     <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1588263691592">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

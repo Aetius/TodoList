@@ -24,4 +24,9 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->findOneBy([], ['id'=> 'DESC']);
     }
+
+    public function findOneByName(string $name)
+    {
+        return $this->findOneBy(['username'=>$name]);
+    }
 }
