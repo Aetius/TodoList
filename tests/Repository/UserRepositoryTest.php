@@ -50,6 +50,26 @@ trait UserRepositoryTest
     }
 
 
+    /**
+     * @param KernelBrowser $client
+     * @param string $name
+     * @return User|null
+     */
+    public function findByRole(KernelBrowser $client, string $role)
+    {
+        $kernel = $client->getKernel();
+        /** @var EntityManagerInterface $entityManager */
+        $entityManager = $kernel->getContainer()
+            ->get('doctrine')
+            ->getManager();
+
+        $user = $entityManager
+            ->getRepository(User::class)
+            ->findByRole($role);
+        return $user;
+    }
+
+
 
 
 }

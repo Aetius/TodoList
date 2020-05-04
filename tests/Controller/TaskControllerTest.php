@@ -159,14 +159,14 @@ class TaskControllerTest extends WebTestCase
 
 
 /**** Delete Task ****/
-    public function testDeleteTaskActionOk()
+    public function testDeleteTaskActionByOwnerTaskOk()
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
         $task = $this->findLastTaskByUserId($this->client, $user)->getId();
 
         $this->client->request(
-            'POST',
+            'GET',
             "/tasks/$task/delete",
             [],
         );
@@ -180,7 +180,7 @@ class TaskControllerTest extends WebTestCase
         $this->setAuthorization($this->client, $user);
 
         $this->client->request(
-            'POST',
+            'GET',
             "/tasks/1/delete",
             [],
         );
@@ -191,12 +191,28 @@ class TaskControllerTest extends WebTestCase
     public function testDeleteTaskActionNokWithoutAuthorization()
     {
         $this->client->request(
-            'POST',
+            'GET',
             '/tasks/1/delete',
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+    }
+
+    public function testDeleteTaskActionAnonymousByAdminOk()
+    {
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
+        $this->setAuthorization($this->client, $user);
+        $anonymous = $this->findOneByName($this->client, Config::ROLE_ANONYMOUS);
+        $task = $this->findLastTaskByUserId($this->client, $anonymous)->getId();
+
+        $this->client->request(
+            'GET',
+            "/tasks/$task/delete",
+            [],
+        );
+        $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
 
 

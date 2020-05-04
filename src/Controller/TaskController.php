@@ -79,14 +79,12 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete")
+     * @Route("/tasks/{id}/delete", name="task_delete", methods={"GET"})
      * @IsGranted("task_delete", subject="task")
      */
-    public function deleteTaskAction(Task $task)
+    public function deleteTaskAction(Task $task, TaskService $service)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($task);
-        $em->flush();
+        $service->delete($task);
 
         $this->addFlash('success', 'La tâche a bien été supprimée.');
 

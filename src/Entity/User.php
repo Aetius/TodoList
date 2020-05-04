@@ -33,6 +33,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  * @Assert\NotBlank(message="Vous devez saisir un mot de passe")
      */
     private $password;
 
@@ -49,7 +50,8 @@ class User implements UserInterface
     private $roles = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", cascade={"persist"},  orphanRemoval=true)
+     * @Assert\Valid()
      */
     private $tasks;
 
@@ -74,6 +76,7 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->username = $username;
+        return $this;
     }
 
     public function getSalt()
@@ -88,6 +91,7 @@ class User implements UserInterface
     public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
     }
 
     public function getEmail()
@@ -98,6 +102,7 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
 
 

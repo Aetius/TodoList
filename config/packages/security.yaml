@@ -15,13 +15,15 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: ~
             pattern: ^/
+            anonymous: lazy
+
             form_login:
                 login_path: login
                 check_path: login
                 always_use_default_target_path: true
                 default_target_path:  /
+                csrf_token_generator: security.csrf.token_manager
             logout:
                 path: /logout
                 target: /

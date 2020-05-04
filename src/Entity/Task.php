@@ -41,8 +41,9 @@ class Task
     private $isDone;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tasks")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tasks", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\Valid()
      */
     private $user;
 
@@ -65,6 +66,7 @@ class Task
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
+        return $this;
     }
 
     public function getTitle()
@@ -75,6 +77,7 @@ class Task
     public function setTitle($title)
     {
         $this->title = $title;
+        return $this;
     }
 
     public function getContent()
@@ -85,11 +88,13 @@ class Task
     public function setContent($content)
     {
         $this->content = $content;
+        return $this;
     }
 
     public function isDone()
     {
         return $this->isDone;
+
     }
 
     public function toggle($flag)

@@ -32,9 +32,9 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['username'=>$name]);
     }
-
+/*
     public function findByRole(string $role)
     {
         return $this->findBy(['roles'=>$role]);
-    }
+    }*/
 }

@@ -60,7 +60,8 @@ class TaskVoter extends Voter
                 if($subject->getUser()->getId() === $user->getId()){
                     return true;
                 }
-                if($subject->getUser()->getRoles() && $this->security->isGranted("ROLE_ADMIN")){
+                if(in_array("ROLE_ANONYMOUS", $subject->getUser()->getRoles()) &&
+                    $this->security->isGranted("ROLE_ADMIN")){
                     return true;
                     }
                 break;

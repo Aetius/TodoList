@@ -43,8 +43,15 @@ class TaskService
 
     public function save(Task $task)
     {
-        $this->em->persist($task);
-        $this->em->flush();
+        try{
+            $this->em->persist($task);
+            $this->em->flush();
+        }
+        catch (\PDOException $e){
+            dd('save task');
+
+        }
+
     }
 
     public function updateToggle(Task $task)
@@ -64,6 +71,12 @@ class TaskService
             return $this->repository->findAllByUser($anonyme);
         }
 
+    }
+
+    public function delete(Task $task)
+    {
+        $this->em->remove($task);
+        $this->em->flush();
     }
 
 }
