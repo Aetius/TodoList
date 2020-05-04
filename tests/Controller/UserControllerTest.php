@@ -38,7 +38,7 @@ class UserControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/users');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testListActionNokWithRoleUser()

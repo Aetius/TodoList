@@ -26,10 +26,6 @@ class TaskVoter extends Voter
             return false;
         }
 
-        if (!$this->security->isGranted("ROLE_USER")){
-            return false;
-        }
-
         return true;
 
 
@@ -40,6 +36,10 @@ class TaskVoter extends Voter
         $user = $token->getUser();
 
         if (!$user instanceof UserInterface) {
+            return false;
+        }
+
+        if (!$this->security->isGranted("ROLE_USER")){
             return false;
         }
 

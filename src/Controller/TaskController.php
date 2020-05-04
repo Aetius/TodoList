@@ -17,7 +17,7 @@ class TaskController extends AbstractController
      * @Route("/tasks", name="task_list", methods={"GET"})
      * @IsGranted("task_show")
      */
-    public function listAction(TaskService $service, TaskRepository $repository)
+    public function listAction(TaskService $service)
     {
         $tasks = $service->show($this->getUser());
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
@@ -29,12 +29,11 @@ class TaskController extends AbstractController
      */
     public function createAction(Request $request, TaskService $service)
     {
-        $task = new Task();
+        $task = $service->create($this->getUser());
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $task = $service->create($task, $this->getUser());
             $service->save($task);
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');

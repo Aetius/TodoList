@@ -34,8 +34,9 @@ class TaskService
         $this->userRepository = $userRepository;
     }
 
-    public function create(Task $task, UserInterface $user)
+    public function create(UserInterface $user)
     {
+        $task = new Task();
         /** @var User $user */
         $task->setUser($user);
         return $task;
@@ -43,15 +44,8 @@ class TaskService
 
     public function save(Task $task)
     {
-        try{
             $this->em->persist($task);
             $this->em->flush();
-        }
-        catch (\PDOException $e){
-            dd('save task');
-
-        }
-
     }
 
     public function updateToggle(Task $task)

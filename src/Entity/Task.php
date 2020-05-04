@@ -44,6 +44,7 @@ class Task
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tasks", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      * @Assert\Valid()
+     * @Assert\NotNull()
      */
     private $user;
 

@@ -42,7 +42,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 /**** task create  ****/
@@ -65,7 +65,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks/create');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testCreateActionPostNokWithoutAuthorization()
@@ -83,7 +83,7 @@ class TaskControllerTest extends WebTestCase
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testCreateActionNokDatasEmpty()
@@ -121,7 +121,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks/1/edit');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testEditActionNokDatasEmpty()
@@ -154,7 +154,7 @@ class TaskControllerTest extends WebTestCase
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 
@@ -196,7 +196,7 @@ class TaskControllerTest extends WebTestCase
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testDeleteTaskActionAnonymousByAdminOk()
@@ -252,7 +252,7 @@ class TaskControllerTest extends WebTestCase
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 }

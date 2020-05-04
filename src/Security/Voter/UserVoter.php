@@ -28,12 +28,7 @@ class UserVoter extends Voter
         }
 
 
-        if ($this->security->isGranted("ROLE_ADMIN")){
-            return true;
-        }
-
-
-        if (!$subject instanceof User){
+        if (!is_null($subject) && !$subject instanceof User){
             return false;
         }
 
@@ -47,6 +42,10 @@ class UserVoter extends Voter
 
         // if the user is anonymous, do not grant access
         if (!$user instanceof UserInterface) {
+            return false;
+        }
+
+        if (!$this->security->isGranted("ROLE_USER")){
             return false;
         }
 

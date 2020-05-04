@@ -32,43 +32,14 @@ class TaskTest extends KernelTestCase
         $this->assertHasErrors($task, 2);
     }
 
-    /**
-     @@expectedException \PDOException()
-     */
-    /*public function testEntityNokWithoutUser()
+
+    public function testEntityNokWithoutUser()
     {
         $task = (new Task())
             ->setContent('Some content')
             ->setTitle('Some title');
-
-
-        $kernel = self::bootKernel();
-        $entityManager = $kernel->getContainer()
-            ->get('doctrine.orm.default_entity_manager');
-
-        ($entityManager->persist($task));
-        ($entityManager->flush());
-
-
-        $test = $this->getMockBuilder(Doctrine\ORM\EntityManagerInterface::class)->getMock();
-
-        $violation = $this->getMockBuilder(ConstraintViolationBuilderInterface::class)->getMock();
-        $violation->expects($this->any())->method('setParameter')->willReturn($violation);
-        $violation->expects($this->once())->method('addViolation');
-
-
-        $test->expects($this->any())
-            ->method('persist')
-            ->with($task)
-            ->willReturn($task);
-        $test->expects($this->once())
-            ->method('flush')
-            ->willReturn($violation);
-
-
-
-        $this->assertHasErrors($violation, 1);
-    }*/
+        $this->assertHasErrors($task, 1);
+    }
 
 
 

@@ -2,26 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/Entity/TaskTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Entity/UserTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/Service/TaskServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Datas/users.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Config/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Config/Config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/SecurityControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/SecurityControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Entity/TaskTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TaskTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Service/TaskServiceTest.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test-coverage/AppCache.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/AppCache.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" afterDir="false" />
@@ -184,7 +179,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../P6/SnowTricks/SnowTricks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
@@ -234,8 +229,8 @@
     <list>
       <item itemvalue="PHPUnit.phpunit.xml.dist" />
       <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
-      <item itemvalue="PHPUnit.UserTest.testSetTasks" />
       <item itemvalue="PHPUnit.UserTest.testSetTasks (1)" />
+      <item itemvalue="PHPUnit.UserTest.testSetTasks" />
     </list>
     <recent_temporary>
       <list>
@@ -282,7 +277,10 @@
       <workItem from="1588312811717" duration="7139000" />
       <workItem from="1588326085871" duration="40209000" />
       <workItem from="1588502291897" duration="268000" />
-      <workItem from="1588574569679" duration="4322000" />
+      <workItem from="1588574569679" duration="11136000" />
+      <workItem from="1588593638058" duration="15000" />
+      <workItem from="1588595002418" duration="3675000" />
+      <workItem from="1588600703581" duration="1834000" />
     </task>
     <servers />
   </component>
@@ -341,9 +339,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1218" y="435" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1587285426462" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1588495257651">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1588585817375">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/-1024.0.1024.728@0.0.1920.1040" timestamp="1588585817375" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588495257651" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588432962026" />
