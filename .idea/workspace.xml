@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ErrorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_403.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_404.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_500.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,19 +148,19 @@
     <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\P8\TodoList\src\Security\Authenticator" />
-      <recent name="C:\wamp64\www\P8\TodoList\src\Security" />
-      <recent name="C:\wamp64\www\P8\TodoList\tests" />
-      <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures" />
-      <recent name="C:\wamp64\www\P8\TodoList\tests\Security" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\P8\TodoList\config\routes\prod" />
       <recent name="C:\wamp64\www\P8\TodoList\config\packages\prod" />
       <recent name="C:\wamp64\www\P8\TodoList\public" />
       <recent name="C:\wamp64\www\P8\TodoList\config\routes\dev" />
       <recent name="C:\wamp64\www\P8\TodoList\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P8\TodoList\src\Security\Authenticator" />
+      <recent name="C:\wamp64\www\P8\TodoList\src\Security" />
+      <recent name="C:\wamp64\www\P8\TodoList\tests" />
+      <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures" />
+      <recent name="C:\wamp64\www\P8\TodoList\tests\Security" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.phpunit.xml.dist">
@@ -166,6 +172,10 @@
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
