@@ -25,10 +25,7 @@ class TaskVoter extends Voter
         if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])){
             return false;
         }
-
         return true;
-
-
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -45,16 +42,13 @@ class TaskVoter extends Voter
 
         switch ($attribute) {
             case 'task_edit':
-                if($this->security->isGranted("ROLE_USER") && $subject->getUser()->getId() === $user->getId()){
+                if ($subject->getUser()->getId() === $user->getId()){
                     return true;
                 }
                 break;
 
                 case 'task_create':
-                if($this->security->isGranted("ROLE_USER")){
                     return true;
-                }
-                break;
 
             case 'task_delete':
                 if($subject->getUser()->getId() === $user->getId()){
@@ -67,11 +61,8 @@ class TaskVoter extends Voter
                 break;
 
             case 'task_show':
-                if($this->security->isGranted("ROLE_USER")){
                     return true;
-                }
         }
-
         return false;
     }
 }

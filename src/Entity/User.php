@@ -5,9 +5,9 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -54,7 +54,6 @@ class User implements UserInterface
      * @Assert\Valid()
      */
     private $tasks;
-
 
 
     public function __construct()
@@ -104,7 +103,6 @@ class User implements UserInterface
         $this->email = $email;
         return $this;
     }
-
 
 
     public function eraseCredentials()

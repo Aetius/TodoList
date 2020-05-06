@@ -32,5 +32,10 @@ class TaskRepository extends ServiceEntityRepository
         return $this->findBy(['user'=>$user]);
     }
 
+    public function findAllUsersNull()
+    {
+        return $this->findBy(['user'=>null]);
+    }
+
 
 }

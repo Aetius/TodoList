@@ -2,11 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200504140923.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20200504142024.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Command/JoinUserToTaskCommand.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ErrorController.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_403.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_404.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/errors/error_500.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fixtures/Datas/tasks.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Datas/tasks.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200430134325.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200504141953.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200504141953.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200504141953.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200504142024.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200504141524.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TaskRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,24 +158,24 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="Comma-separated (CSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Migrations" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/errors" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\P8\TodoList\templates\errors" />
+      <recent name="C:\wamp64\www\P8\TodoList\src\Migrations" />
+      <recent name="C:\wamp64\www\P8\TodoList\tests\Repository" />
+      <recent name="C:\wamp64\www\P8\TodoList\config\routes\prod" />
+      <recent name="C:\wamp64\www\P8\TodoList\config\packages\prod" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\P8\TodoList\tests\Controller" />
       <recent name="C:\wamp64\www\P8\TodoList\src\Security\Authenticator" />
       <recent name="C:\wamp64\www\P8\TodoList\src\Security" />
       <recent name="C:\wamp64\www\P8\TodoList\tests" />
       <recent name="C:\wamp64\www\P8\TodoList\src\Fixtures" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\P8\TodoList\src\Migrations" />
-      <recent name="C:\wamp64\www\P8\TodoList\tests\Repository" />
-      <recent name="C:\wamp64\www\P8\TodoList\config\routes\prod" />
-      <recent name="C:\wamp64\www\P8\TodoList\config\packages\prod" />
-      <recent name="C:\wamp64\www\P8\TodoList\public" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.UserTest.testSetTasks (1)">
@@ -241,7 +259,9 @@
       <workItem from="1588574569679" duration="11136000" />
       <workItem from="1588593638058" duration="15000" />
       <workItem from="1588595002418" duration="3675000" />
-      <workItem from="1588600703581" duration="4520000" />
+      <workItem from="1588600703581" duration="5147000" />
+      <workItem from="1588658251868" duration="14271000" />
+      <workItem from="1588752592577" duration="13975000" />
     </task>
     <servers />
   </component>
@@ -278,33 +298,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="660" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1587580264444" />
-    <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1588256284893">
+    <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1588660553310">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588256284893" />
+    <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588660553310" />
     <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1587328806297" />
-    <state x="590" y="91" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588058641124">
+    <state x="590" y="91" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588752894224">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="590" y="91" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588058641124" />
+    <state x="590" y="91" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588752894224" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1587311545989">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587311545989" />
-    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588581692684">
+    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588794168726">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588581692684" />
+    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588794168726" />
     <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330344367" />
     <state x="1218" y="435" key="ComposerInitDialogKey" timestamp="1587285426462">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1218" y="435" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1587285426462" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1588585817375">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1588777658752">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/-1024.0.1024.728@0.0.1920.1040" timestamp="1588585817375" />
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588495257651" />
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588777658752" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588432962026" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1588502260519">
@@ -331,10 +351,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="540" y="254" key="IDE.errors.dialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588326063980" />
-    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588491926990">
+    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588777916038">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588491926990" />
+    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588777916038" />
     <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330330219" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1587976677749">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -354,14 +374,14 @@
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state x="2888" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1586703219296" />
-    <state x="2077" y="14" width="1565" height="912" key="dock-window-1" timestamp="1588318102943">
+    <state x="2162" y="17" width="1337" height="840" maximized="true" key="dock-window-1" timestamp="1588794605793">
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
-    <state x="2077" y="14" width="1565" height="912" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588318102943" />
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1588501091747">
+    <state x="2162" y="17" width="1337" height="840" maximized="true" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588794605793" />
+    <state x="591" y="150" width="672" height="678" key="search.everywhere.popup" timestamp="1588794074397">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588501091747" />
+    <state x="591" y="150" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588794074397" />
     <state x="2804" y="173" width="672" height="659" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1588402470125" />
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587309792854" />
   </component>

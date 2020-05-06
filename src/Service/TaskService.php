@@ -64,7 +64,6 @@ class TaskService
             $anonyme = $this->userRepository->findOneByName(UserRepository::ANONYMOUS);
             return $this->repository->findAllByUser($anonyme);
         }
-
     }
 
     public function delete(Task $task)

@@ -27,13 +27,11 @@ class UserVoter extends Voter
             return false;
         }
 
-
         if (!is_null($subject) && !$subject instanceof User){
             return false;
         }
 
         return true;
-
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)

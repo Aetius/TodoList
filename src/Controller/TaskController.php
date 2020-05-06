@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
-use App\Repository\TaskRepository;
 use App\Service\TaskService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,7 +16,7 @@ class TaskController extends AbstractController
      * @Route("/tasks", name="task_list", methods={"GET"})
      * @IsGranted("task_show")
      */
-    public function listAction(TaskService $service)
+    public function list(TaskService $service)
     {
         $tasks = $service->show($this->getUser());
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
@@ -27,7 +26,7 @@ class TaskController extends AbstractController
      * @Route("/tasks/create", name="task_create", methods={"GET", "POST"})
      * @IsGranted("task_create")
      */
-    public function createAction(Request $request, TaskService $service)
+    public function create(Request $request, TaskService $service)
     {
         $task = $service->create($this->getUser());
         $form = $this->createForm(TaskType::class, $task);
@@ -46,7 +45,7 @@ class TaskController extends AbstractController
      * @Route("/tasks/{id}/edit", name="task_edit", methods={"GET", "POST"})
      * @IsGranted("task_edit", subject="task")
      */
-    public function editAction(Task $task, Request $request, TaskService $service)
+    public function edit(Task $task, Request $request, TaskService $service)
     {
         $form = $this->createForm(TaskType::class, $task);
 
@@ -67,7 +66,7 @@ class TaskController extends AbstractController
      * @Route("/tasks/{id}/toggle", name="task_toggle", methods={"GET"})
      * @IsGranted("task_edit", subject="task")
      */
-    public function toggleTaskAction(Task $task, TaskService $service)
+    public function toggleTask(Task $task, TaskService $service)
     {
         $task = $service->updateToggle($task);
         $service->save($task);
@@ -81,7 +80,7 @@ class TaskController extends AbstractController
      * @Route("/tasks/{id}/delete", name="task_delete", methods={"GET"})
      * @IsGranted("task_delete", subject="task")
      */
-    public function deleteTaskAction(Task $task, TaskService $service)
+    public function deleteTask(Task $task, TaskService $service)
     {
         $service->delete($task);
 

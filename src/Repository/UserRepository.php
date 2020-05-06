@@ -15,7 +15,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class UserRepository extends ServiceEntityRepository
 {
-    const ANONYMOUS = "ANONYME";
+    const ANONYMOUS = "anonymous";
 
 
     public function __construct(ManagerRegistry $registry)
