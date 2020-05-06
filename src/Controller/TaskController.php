@@ -4,7 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Task;
 use App\Form\TaskType;
-use App\Repository\TaskRepository;
+use App\Service\TaskService;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,26 +13,28 @@ use Symfony\Component\Routing\Annotation\Route;
 class TaskController extends AbstractController
 {
     /**
-     * @Route("/tasks", name="task_list")
+     * @Route("/tasks", name="task_list", methods={"GET"})
+     * @IsGranted("task_show")
      */
-    public function listAction(TaskRepository $repository)
+    public function list(TaskService $service)
     {
-        return $this->render('task/list.html.twig', ['tasks' => $repository->findAll()]);
+        $tasks = $service->show($this->getUser());
+        return $this->render('task/list.html.twig', ['tasks' => $tasks]);
     }
 
     /**
-     * @Route("/tasks/create", name="task_create")
+     * @Route("/tasks/create", name="task_create", methods={"GET", "POST"})
+     * @IsGranted("task_create")
      */
-    public function createAction(Request $request)
+    public function create(Request $request, TaskService $service)
     {
-        $task = new Task();
+        $task = $service->create($this->getUser());
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($task);
-            $em->flush();
+            $service->save($task);
+
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
             return $this->redirectToRoute('task_list');
         }
@@ -39,19 +42,18 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/edit", name="task_edit")
+     * @Route("/tasks/{id}/edit", name="task_edit", methods={"GET", "POST"})
+     * @IsGranted("task_edit", subject="task")
      */
-    public function editAction(Task $task, Request $request)
+    public function edit(Task $task, Request $request, TaskService $service)
     {
         $form = $this->createForm(TaskType::class, $task);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
+            $service->save($task);
             $this->addFlash('success', 'La tâche a bien été modifiée.');
-
             return $this->redirectToRoute('task_list');
         }
         return $this->render('task/edit.html.twig', [
@@ -61,12 +63,13 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
+     * @Route("/tasks/{id}/toggle", name="task_toggle", methods={"GET"})
+     * @IsGranted("task_edit", subject="task")
      */
-    public function toggleTaskAction(Task $task)
+    public function toggleTask(Task $task, TaskService $service)
     {
-        $task->toggle(!$task->isDone());
-        $this->getDoctrine()->getManager()->flush();
+        $task = $service->updateToggle($task);
+        $service->save($task);
 
         $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 
@@ -74,13 +77,12 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete")
+     * @Route("/tasks/{id}/delete", name="task_delete", methods={"GET"})
+     * @IsGranted("task_delete", subject="task")
      */
-    public function deleteTaskAction(Task $task)
+    public function deleteTask(Task $task, TaskService $service)
     {
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($task);
-        $em->flush();
+        $service->delete($task);
 
         $this->addFlash('success', 'La tâche a bien été supprimée.');
 

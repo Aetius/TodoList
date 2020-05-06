@@ -17,6 +17,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "dama/doctrine-test-bundle": "^6.3",
+        "doctrine/dbal": "^2.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^2.1",
@@ -45,10 +46,12 @@
         "symfony/validator": "^4.0",
         "symfony/yaml": "^4.0",
         "twig/extra-bundle": "^3.0",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "ext-pdo": "*"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^4.0"
+        "symfony/phpunit-bridge": "^4.0",
+        "ext-pdo": "*"
     },
     "config": {
         "preferred-install": {

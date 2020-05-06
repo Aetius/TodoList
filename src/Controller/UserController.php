@@ -10,7 +10,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserController extends AbstractController
 {
@@ -18,7 +17,7 @@ class UserController extends AbstractController
      * @Route("/users", name="user_list")
      * @IsGranted("admin_access")
      */
-    public function listAction(UserRepository $repository)
+    public function list(UserRepository $repository)
     {
         return $this->render('user/list.html.twig', ['users' => $repository->findAll()]);
     }
@@ -26,7 +25,7 @@ class UserController extends AbstractController
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function createAction(Request $request, UserService $service)
+    public function create(Request $request, UserService $service)
     {
         $user = new User();
         $form = $this->createForm(UserType::class, $user);
@@ -49,7 +48,7 @@ class UserController extends AbstractController
      * @Route("/users/{id}/edit", name="user_edit")
      * @IsGranted("edit_user", subject="user")
      */
-    public function editAction(User $user, Request $request, UserService $service)
+    public function edit(User $user, Request $request, UserService $service)
     {
         $form = $this->createForm(UserType::class, $user);
 

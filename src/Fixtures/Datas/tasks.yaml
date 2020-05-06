@@ -1,4 +1,6 @@
 App\Entity\Task:
-    task_{1..10}:
-        title: title.<current()>
-        content: testesttest.
+    task_{1..50}:
+        title: Lorem Ipsum.<current()>
+        content: " as you can see, arguments can be used as parameters as you go. They however will only in the scope of that function, i.e. in the above the parameter"
+        user: '@user_<numberBetween(2, 10)>'
+

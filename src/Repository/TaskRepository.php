@@ -5,6 +5,7 @@ namespace App\Repository;
 
 
 use App\Entity\Task;
+use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -21,6 +22,20 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    public function findOneByUserId(User $user)
+    {
+        return $this->findOneBy(['user'=>$user], ['id'=>'DESC']);
+    }
+
+    public function findAllByUser(User $user)
+    {
+        return $this->findBy(['user'=>$user]);
+    }
+
+    public function findAllUsersNull()
+    {
+        return $this->findBy(['user'=>null]);
+    }
 
 
 }

@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -31,6 +33,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     *  * @Assert\NotBlank(message="Vous devez saisir un mot de passe")
      */
     private $password;
 
@@ -46,11 +49,17 @@ class User implements UserInterface
      */
     private $roles = [];
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", cascade={"persist"},  orphanRemoval=true)
+     * @Assert\Valid()
+     */
+    private $tasks;
 
 
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
+        $this->tasks = new ArrayCollection();
     }
 
     public function getId()
@@ -66,6 +75,7 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->username = $username;
+        return $this;
     }
 
     public function getSalt()
@@ -80,6 +90,7 @@ class User implements UserInterface
     public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
     }
 
     public function getEmail()
@@ -90,8 +101,8 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+        return $this;
     }
-
 
 
     public function eraseCredentials()
@@ -106,6 +117,37 @@ class User implements UserInterface
     public function setRoles(array $roles): self
     {
         $this->roles = $roles;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Task[]
+     */
+    public function getTasks(): Collection
+    {
+        return $this->tasks;
+    }
+
+    public function addTask(Task $task): self
+    {
+        if (!$this->tasks->contains($task)) {
+            $this->tasks[] = $task;
+            $task->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTask(Task $task): self
+    {
+        if ($this->tasks->contains($task)) {
+            $this->tasks->removeElement($task);
+            // set the owning side to null (unless already changed)
+            if ($task->getUser() === $this) {
+                $task->setUser(null);
+            }
+        }
 
         return $this;
     }
