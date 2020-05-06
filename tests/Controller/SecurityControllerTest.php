@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Tests\Security;
+namespace Tests\Controller;
 
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
@@ -16,7 +16,7 @@ class SecurityControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-    public function testLoginSubmitForm()
+    public function testLoginSubmitFormOk()
     {
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form([
@@ -24,7 +24,20 @@ class SecurityControllerTest extends WebTestCase
             '_password' => 'demo'
         ]);
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/'));
+    }
+
+    public function testLoginSubmitFormNokAnonymousProfile()
+    {
+        $this->client->followRedirects();
+        $crawler = $this->client->request('GET', '/login');
+        $form = $crawler->selectButton('Se connecter')->form([
+            '_username' => 'anonymous',
+            '_password' => 'anonymous'
+        ]);
+        $this->client->submit($form);
+        $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
+
     }
 
     public function testLoginSubmitFailedForm()
@@ -35,6 +48,6 @@ class SecurityControllerTest extends WebTestCase
             '_password' => 'falsePassword'
         ]);
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 }

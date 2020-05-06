@@ -27,18 +27,11 @@ class UserVoter extends Voter
             return false;
         }
 
-
-        if ($this->security->isGranted("ROLE_ADMIN")){
-            return true;
-        }
-
-
-        if (!$subject instanceof User){
+        if (!is_null($subject) && !$subject instanceof User){
             return false;
         }
 
         return true;
-
     }
 
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -50,14 +43,18 @@ class UserVoter extends Voter
             return false;
         }
 
+        if (!$this->security->isGranted("ROLE_USER")){
+            return false;
+        }
+
         switch ($attribute) {
             case 'admin_access':
-                if(in_array("ROLE_ADMIN", $user->getRoles())){
+                if($this->security->isGranted("ROLE_ADMIN")){
                     return true;
                 }
                 break;
             case 'form_user':
-                if(in_array("ROLE_ADMIN", $user->getRoles())){
+                if($this->security->isGranted("ROLE_ADMIN")){
                     return true;
                 }
                 break;
@@ -65,7 +62,7 @@ class UserVoter extends Voter
                 if ($subject->getId() === $user->getId()) {
                     return true;
                 }
-                if (in_array("ROLE_ADMIN", $user->getRoles())){
+                if ($this->security->isGranted("ROLE_ADMIN")){
                     return true;
                 }
                 break;

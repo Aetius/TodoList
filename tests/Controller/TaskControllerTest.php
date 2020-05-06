@@ -7,6 +7,7 @@ namespace Tests\Controller;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Config\Config;
+use Tests\Repository\TaskRepositoryTest;
 use Tests\Repository\UserRepositoryTest;
 use Tests\Security\Connexion;
 
@@ -15,6 +16,7 @@ class TaskControllerTest extends WebTestCase
 
     use Connexion;
     use UserRepositoryTest;
+    use TaskRepositoryTest;
 
     /**
      *@var  KernelBrowser
@@ -40,7 +42,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 /**** task create  ****/
@@ -63,7 +65,7 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks/create');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testCreateActionPostNokWithoutAuthorization()
@@ -81,7 +83,7 @@ class TaskControllerTest extends WebTestCase
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testCreateActionNokDatasEmpty()
@@ -103,7 +105,8 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $crawler = $this->client->request('GET', '/tasks/1/edit');
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $crawler = $this->client->request('GET', "/tasks/$task/edit");
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
         $button = $crawler->selectButton('Modifier');
@@ -118,14 +121,15 @@ class TaskControllerTest extends WebTestCase
     {
         $this->client->request('GET', '/tasks/1/edit');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
     public function testEditActionNokDatasEmpty()
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $crawler = $this->client->request('GET', '/tasks/1/edit');
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $crawler = $this->client->request('GET', "/tasks/$task/edit");
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
@@ -150,33 +154,65 @@ class TaskControllerTest extends WebTestCase
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 
 /**** Delete Task ****/
-    public function testDeleteTaskActionOk()
+    public function testDeleteTaskActionByOwnerTaskOk()
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+
         $this->client->request(
-            'POST',
-            '/tasks/1/delete',
+            'GET',
+            "/tasks/$task/delete",
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
 
+    public function testDeleteTaskActionNokWrongUserForTask()
+    {
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+
+        $this->client->request(
+            'GET',
+            "/tasks/1/delete",
+            [],
+        );
+        $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
+
+    }
+
     public function testDeleteTaskActionNokWithoutAuthorization()
     {
         $this->client->request(
-            'POST',
+            'GET',
             '/tasks/1/delete',
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
+    }
+
+    public function testDeleteTaskActionAnonymousByAdminOk()
+    {
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
+        $this->setAuthorization($this->client, $user);
+        $anonymous = $this->findOneByName($this->client, Config::ROLE_ANONYMOUS);
+        $task = $this->findLastTaskByUserId($this->client, $anonymous)->getId();
+
+        $this->client->request(
+            'GET',
+            "/tasks/$task/delete",
+            [],
+        );
+        $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
 
 
@@ -186,24 +222,37 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
         $this->client->request(
-            'POST',
-            '/tasks/1/toggle',
+            'GET',
+            "/tasks/$task/toggle",
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
 
+    public function testToggleTaskActionNokWrongUser()
+    {
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+        $this->client->request(
+            'GET',
+            '/tasks/1/toggle',
+            [],
+        );
+        $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
+    }
+
     public function testToggleTaskActionNokWithoutAuthorization()
     {
         $this->client->request(
-            'POST',
+            'GET',
             '/tasks/1/toggle',
             [],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
 }

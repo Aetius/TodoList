@@ -15,6 +15,9 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class UserRepository extends ServiceEntityRepository
 {
+    const ANONYMOUS = "anonymous";
+
+
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
@@ -29,4 +32,9 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['username'=>$name]);
     }
+/*
+    public function findByRole(string $role)
+    {
+        return $this->findBy(['roles'=>$role]);
+    }*/
 }
