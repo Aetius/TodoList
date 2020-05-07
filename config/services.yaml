@@ -30,6 +30,6 @@ services:
 
     App\Listener\ExceptionListener:
         arguments:
-            $router: '@twig'
+            $twig: '@twig'
         tags:
             - { name: kernel.event_listener, event: kernel.exception }

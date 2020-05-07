@@ -4,28 +4,24 @@
 namespace App\Listener;
 
 
-use Symfony\Bundle\FrameworkBundle\Controller\RedirectController;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Bundle\TwigBundle\TwigBundle;
-use Symfony\Component\DependencyInjection\Container;
-use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\HttpKernel;
 use Twig\Environment;
 
 class ExceptionListener
 {
 
+    private $twig;
+
     /**
      * ExceptionListener constructor.
-     * @var Environment $router
+     *
+     * @param Environment $twig
      */
-    public function __construct($router)
+    public function __construct($twig)
     {
-        $this->router = $router;
+        $this->twig = $twig;
     }
 
     public function OnKernelException(ExceptionEvent $event)
@@ -36,19 +32,21 @@ class ExceptionListener
             $exception->getStatusCode() :
             Response::HTTP_INTERNAL_SERVER_ERROR;
 
-        if ($statusCode === 403) {
-            return $event->setResponse(new Response($this->router->render('errors/error_403.html.twig')));
+        switch ($statusCode) {
+            case 404:
+                $message = ["message" => "Désolé, cette page n'existe pas."];
+                break;
+            case 403:
+                $message = ["message" => "Désolé, Vous n'êtes pas autorisé à accéder à cette page."];
+                break;
+            case 500:
+                $message = ["message" => "Une erreur s'est produite. Merci de recharger la page."];
+                break;
+            default:
+                $message = ["message" => "Une erreur est apparue sur la page. Merci de la recharger."];
         }
-        if ($statusCode === 404) {
-            return $event->setResponse(new Response($this->router->render('errors/error_404.html.twig')));
-        }
-        if ($statusCode === 500) {
-            return $event->setResponse(new Response($this->router->render('errors/error_500.html.twig')));
-        }
-        return $event->setResponse(new Response($this->router->render('errors/error.html.twig')));
+        return $event->setResponse(new Response($this->twig->render('errors/error.html.twig', $message)));
+
 
     }
-
-
-
 }

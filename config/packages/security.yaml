@@ -17,8 +17,6 @@ security:
         main:
             pattern: ^/
             anonymous: lazy
-
-
             logout:
                 path: /logout
                 target: /
