@@ -20,15 +20,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/tests/Repository/RepositoryTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ErrorController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/error.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/error_403.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/error_404.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/errors/error_500.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/TaskController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/TaskController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/UserController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/UserController.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/Task.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/Task.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/User.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/User.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/TaskType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/TaskType.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/UserType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/UserType.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/TaskRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/TaskRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/UserRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/UserRepository.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/LoginFormAuthenticator.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/LoginFormAuthenticator.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/TaskVoter.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/TaskVoter.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/UserVoter.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/UserVoter.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/TaskService.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/TaskService.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/UserService.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/UserService.php.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_css/bootstrap.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_css/octicons.css" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_css/octicons.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/bootstrap.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/d3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/d3.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/file.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/file.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/jquery.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/jquery.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/nv.d3.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/nv.d3.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/_js/popper.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/_js/popper.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +221,11 @@
       <recent name="C:\wamp64\www\P8\TodoList\tests\Security" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.phpunit.xml.dist">
+  <component name="RunManager" selected="PHPUnit.TaskServiceTest.testShowRoleAdminOk">
+    <configuration name="TaskServiceTest.testShowRoleAdminOk" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Services\TaskServiceTest" file="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" method="testShowRoleAdminOk" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="UserControllerTest.testCreateActionNokUserAlreadyUsed" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="Tests\Controller\UserControllerTest" file="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" method="testCreateActionNokUserAlreadyUsed" scope="Method" />
       <method v="2" />
@@ -194,9 +237,11 @@
     <list>
       <item itemvalue="PHPUnit.phpunit.xml.dist" />
       <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
+      <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
         <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
       </list>
     </recent_temporary>
@@ -259,6 +304,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="162" key="#PHP/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588077002303" />
+    <state x="647" y="104" key="#TaskServiceTest.testShowRoleAdminOk" timestamp="1588866991421">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="647" y="104" key="#TaskServiceTest.testShowRoleAdminOk/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588866991421" />
     <state x="647" y="100" key="#UserControllerTest.testCreateActionNokUserAlreadyUsed" timestamp="1588077002775">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -284,10 +333,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587311545989" />
-    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588268124072">
+    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588861010030">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588268124072" />
+    <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588861010030" />
     <state x="1035" y="278" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330344367" />
     <state x="1218" y="435" key="ComposerInitDialogKey" timestamp="1587285426462">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -299,10 +348,10 @@
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588238653496" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1587392795625" />
-    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588269014069">
+    <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1588861849384">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588269014069" />
+    <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588861849384" />
     <state x="1237" y="246" key="NewPhpClassDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587330330219" />
     <state x="794" y="443" key="NewPhpFileDialog" timestamp="1587976677749">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -326,6 +375,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="269" y="240" width="1337" height="840" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588836851720" />
+    <state x="2074" y="16" width="1337" height="744" maximized="true" key="dock-window-2" timestamp="1588883400750">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state x="2074" y="16" width="1337" height="744" maximized="true" key="dock-window-2/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588883400750" />
     <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1588837333285">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

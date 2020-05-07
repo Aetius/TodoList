@@ -9,6 +9,7 @@ use App\Entity\User;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use PHPUnit\Util\Exception;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class TaskService
@@ -44,8 +45,8 @@ class TaskService
 
     public function save(Task $task)
     {
-            $this->em->persist($task);
-            $this->em->flush();
+        $this->em->persist($task);
+        $this->em->flush();
     }
 
     public function updateToggle(Task $task)
@@ -64,6 +65,7 @@ class TaskService
             $anonyme = $this->userRepository->findOneByName(UserRepository::ANONYMOUS);
             return $this->repository->findAllByUser($anonyme);
         }
+        Throw new Exception('You must be logged to access this.');
     }
 
     public function delete(Task $task)
