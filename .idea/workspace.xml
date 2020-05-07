@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Controller/ErrorController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/errors/error.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/errors/error_403.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/errors/error_404.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/errors/error_500.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ErrorController.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/errors/error.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/error_403.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/error_404.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/error_500.html.twig" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,8 +192,8 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
       <item itemvalue="PHPUnit.phpunit.xml.dist" />
+      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
     </list>
     <recent_temporary>
       <list>
@@ -222,6 +241,18 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="667" y="162" key="#PHP" timestamp="1588077002303">
@@ -291,14 +322,14 @@
       <screen x="1920" y="34" width="1680" height="1010" />
     </state>
     <state x="2888" y="366" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1586703219296" />
-    <state x="2077" y="14" width="1565" height="912" key="dock-window-1" timestamp="1588318102943">
-      <screen x="1920" y="34" width="1680" height="1010" />
-    </state>
-    <state x="2077" y="14" width="1565" height="912" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588318102943" />
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1588263691592">
+    <state x="269" y="240" width="1337" height="840" key="dock-window-1" timestamp="1588836851720">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588263691592" />
+    <state x="269" y="240" width="1337" height="840" key="dock-window-1/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588836851720" />
+    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1588837333285">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588837333285" />
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587309792854" />
   </component>
 </project>
