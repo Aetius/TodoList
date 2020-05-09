@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Task;
+use App\Factory\TaskFactory;
 use App\Form\TaskType;
 use App\Service\TaskService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
@@ -26,9 +27,9 @@ class TaskController extends AbstractController
      * @Route("/tasks/create", name="task_create", methods={"GET", "POST"})
      * @IsGranted("task_create")
      */
-    public function create(Request $request, TaskService $service)
+    public function create(Request $request, TaskService $service, TaskFactory $factory)
     {
-        $task = $service->create($this->getUser());
+        $task = $factory->create($this->getUser());
         $form = $this->createForm(TaskType::class, $task);
         $form->handleRequest($request);
 

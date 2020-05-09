@@ -35,14 +35,6 @@ class TaskService
         $this->userRepository = $userRepository;
     }
 
-    public function create(UserInterface $user)
-    {
-        $task = new Task();
-        /** @var User $user */
-        $task->setUser($user);
-        return $task;
-    }
-
     public function save(Task $task)
     {
         $this->em->persist($task);
