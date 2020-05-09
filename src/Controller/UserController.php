@@ -16,6 +16,7 @@ class UserController extends AbstractController
 {
     /**
      * @Route("/users", name="user_list")
+     *
      * @IsGranted("admin_access")
      */
     public function list(UserRepository $repository)
@@ -47,6 +48,7 @@ class UserController extends AbstractController
 
     /**
      * @Route("/users/{id}/edit", name="user_edit")
+     *
      * @IsGranted("edit_user", subject="user")
      */
     public function edit(User $user, Request $request, UserService $service)

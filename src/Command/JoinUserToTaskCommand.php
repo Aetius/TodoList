@@ -45,6 +45,11 @@ class JoinUserToTaskCommand extends Command
         $this->setDescription('Add an anonymous user to the task if user_id is null. Create a new anonymous user or find it in database.');
     }
 
+    /**
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return int|void
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $user = $this->anonymousUser();
@@ -52,6 +57,9 @@ class JoinUserToTaskCommand extends Command
         $output->writeln(count($tasks)." modification(s) have been done.");
     }
 
+    /**
+     * @return User
+     */
     private function anonymousUser()
     {
         $user = $this->userRepository->findOneByName("anonymous");
@@ -67,6 +75,10 @@ class JoinUserToTaskCommand extends Command
         return $user;
     }
 
+    /**
+     * @param User $user
+     * @return \App\Entity\Task[]
+     */
     private function addUserToTask(User $user)
     {
         $tasks = $this->taskRepository->findAllUsersNull();

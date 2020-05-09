@@ -24,6 +24,9 @@ class ExceptionListener
         $this->twig = $twig;
     }
 
+    /**
+     * @param ExceptionEvent $event
+     */
     public function OnKernelException(ExceptionEvent $event)
     {
         $exception = $event->getThrowable();

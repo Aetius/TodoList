@@ -25,12 +25,14 @@ class Task
 
     /**
      * @ORM\Column(type="string")
+     *
      * @Assert\NotBlank(message="Vous devez saisir un titre.")
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     *
      * @Assert\NotBlank(message="Vous devez saisir du contenu.")
      */
     private $content;
@@ -43,6 +45,7 @@ class Task
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="tasks", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
+     *
      * @Assert\Valid()
      * @Assert\NotNull()
      */

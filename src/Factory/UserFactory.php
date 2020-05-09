@@ -10,6 +10,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 class UserFactory
 {
 
+    /**
+     * @param UserInterface|null $user
+     * @return User
+     */
     public function create(UserInterface $user = null)
     {
         $newUser = new User();

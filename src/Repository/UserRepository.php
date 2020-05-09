@@ -23,18 +23,21 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @return User|null
+     */
     public function findLast()
     {
         return $this->findOneBy([], ['id'=> 'DESC']);
     }
 
+    /**
+     * @param string $name
+     * @return User|null
+     */
     public function findOneByName(string $name)
     {
         return $this->findOneBy(['username'=>$name]);
     }
-/*
-    public function findByRole(string $role)
-    {
-        return $this->findBy(['roles'=>$role]);
-    }*/
+
 }

@@ -20,6 +20,11 @@ class TaskVoter extends Voter
         $this->security = $security;
     }
 
+    /**
+     * @param string $attribute
+     * @param mixed $subject
+     * @return bool
+     */
     protected function supports($attribute, $subject)
     {
         if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])){
@@ -28,6 +33,12 @@ class TaskVoter extends Voter
         return true;
     }
 
+    /**
+     * @param string $attribute
+     * @param mixed $subject
+     * @param TokenInterface $token
+     * @return bool
+     */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
     {
         $user = $token->getUser();
