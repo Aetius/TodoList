@@ -132,13 +132,6 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
-/*    public function testCreateActionGetPageWithoutAuthorization()
-    {
-        $this->client->request('GET', '/users/create');
-        $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
-        $this->assertTrue($this->client->getResponse()->isRedirect(Config::BASE_URI.'/login'));
-    }*/
-
 
 
 /**** Edit Actions   *****/
@@ -187,7 +180,7 @@ class UserControllerTest extends WebTestCase
 
 
         $token = ($this->client->getContainer()->get('security.csrf.token_manager')->getToken('user')->getValue());
-        $this->client->request(
+        $crawler = $this->client->request(
             'POST',
             '/users/2/edit',
             [
@@ -203,7 +196,7 @@ class UserControllerTest extends WebTestCase
                 ]
             ],
         );
-
+        $this->assertEquals(1, $crawler->filter('html:contains("This form should not contain extra fields.")')->count());
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 //This form should not contain extra fields.

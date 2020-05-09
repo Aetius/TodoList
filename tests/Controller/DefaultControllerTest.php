@@ -30,10 +30,16 @@ class DefaultControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
-    public function testHomepageNok()
+    public function testHomepageNokWithoutAuthorization()
     {
         $this->client->request('GET', '/');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
+    }
+
+    public function testWrongUrl()
+    {
+        $this->client->request('GET', '/wrongUrl');
+        $this->assertEquals(404, $this->client->getResponse()->getStatusCode());
     }
 }

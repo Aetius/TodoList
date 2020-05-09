@@ -14,7 +14,7 @@ class UserTest extends TestCase
 
     public function testSetTasks()
     {
-        //$task = $this->getMockBuilder(Task::class)->setMethods(['get'])->getMock();
+
         $task = new Task();
         $user = new User();
         $user->addTask($task);

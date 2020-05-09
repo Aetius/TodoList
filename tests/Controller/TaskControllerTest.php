@@ -38,12 +38,13 @@ class TaskControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
-    public function testListActionNok()
+    public function testListActionNokWithoutAuthorization()
     {
         $this->client->request('GET', '/tasks');
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
+
 
 /**** task create  ****/
     public function testCreateActionOk()

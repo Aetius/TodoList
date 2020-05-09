@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Factory\UserFactory;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use App\Service\UserService;
@@ -25,9 +26,9 @@ class UserController extends AbstractController
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function create(Request $request, UserService $service)
+    public function create(Request $request, UserService $service, UserFactory $factory)
     {
-        $user = new User();
+        $user = $factory->create($this->getUser());
         $form = $this->createForm(UserType::class, $user);
 
         $form->handleRequest($request);
