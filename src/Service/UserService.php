@@ -41,7 +41,4 @@ class UserService
         $this->em->flush();
     }
 
-
-
-
 }
