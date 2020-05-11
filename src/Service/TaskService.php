@@ -35,18 +35,29 @@ class TaskService
         $this->userRepository = $userRepository;
     }
 
+    /**
+     * @param Task $task
+     */
     public function save(Task $task)
     {
         $this->em->persist($task);
         $this->em->flush();
     }
 
+    /**
+     * @param Task $task
+     * @return Task
+     */
     public function updateToggle(Task $task)
     {
         $task->toggle(!$task->isDone());
         return $task;
     }
 
+    /**
+     * @param UserInterface $user
+     * @return Task[]
+     */
     public function show(UserInterface $user)
     {
         if (in_array('ROLE_USER', $user->getRoles())){
@@ -60,6 +71,9 @@ class TaskService
         Throw new Exception('You must be logged to access this.');
     }
 
+    /**
+     * @param Task $task
+     */
     public function delete(Task $task)
     {
         $this->em->remove($task);

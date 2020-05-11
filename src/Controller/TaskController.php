@@ -15,6 +15,7 @@ class TaskController extends AbstractController
 {
     /**
      * @Route("/tasks", name="task_list", methods={"GET"})
+     *
      * @IsGranted("task_show")
      */
     public function list(TaskService $service)
@@ -25,6 +26,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/create", name="task_create", methods={"GET", "POST"})
+     *
      * @IsGranted("task_create")
      */
     public function create(Request $request, TaskService $service, TaskFactory $factory)
@@ -44,6 +46,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}/edit", name="task_edit", methods={"GET", "POST"})
+     *
      * @IsGranted("task_edit", subject="task")
      */
     public function edit(Task $task, Request $request, TaskService $service)
@@ -65,6 +68,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}/toggle", name="task_toggle", methods={"GET"})
+     *
      * @IsGranted("task_edit", subject="task")
      */
     public function toggleTask(Task $task, TaskService $service)
@@ -79,6 +83,7 @@ class TaskController extends AbstractController
 
     /**
      * @Route("/tasks/{id}/delete", name="task_delete", methods={"GET"})
+     *
      * @IsGranted("task_delete", subject="task")
      */
     public function deleteTask(Task $task, TaskService $service)

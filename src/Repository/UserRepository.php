@@ -23,18 +23,30 @@ class UserRepository extends ServiceEntityRepository
         parent::__construct($registry, User::class);
     }
 
+    /**
+     * @return User|null
+     */
     public function findLast()
     {
         return $this->findOneBy([], ['id'=> 'DESC']);
     }
 
+    public function findAllExceptAnonymous()
+    {
+       return( $this->createQueryBuilder('p')
+        ->where("p.roles LIKE'[\"ROLE_USER\"]'")
+        ->orWhere("p.roles LIKE'[\"ROLE_ADMIN\"]'")
+           ->getQuery()
+           ->getResult());
+
+    }
+    /**
+     * @param string $name
+     * @return User|null
+     */
     public function findOneByName(string $name)
     {
         return $this->findOneBy(['username'=>$name]);
     }
-/*
-    public function findByRole(string $role)
-    {
-        return $this->findBy(['roles'=>$role]);
-    }*/
+
 }

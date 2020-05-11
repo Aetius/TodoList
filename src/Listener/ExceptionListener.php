@@ -24,6 +24,9 @@ class ExceptionListener
         $this->twig = $twig;
     }
 
+    /**
+     * @param ExceptionEvent $event
+     */
     public function OnKernelException(ExceptionEvent $event)
     {
         $exception = $event->getThrowable();
@@ -40,7 +43,7 @@ class ExceptionListener
                 $message = ["message" => "Désolé, Vous n'êtes pas autorisé à accéder à cette page."];
                 break;
             case 500:
-                $message = ["message" => "Une erreur s'est produite. Merci de recharger la page."];
+                $message = ["message" => "Une erreur serveur s'est produite. Si le problème persiste, merci de contacter l'administrateur du site."];
                 break;
             default:
                 $message = ["message" => "Une erreur est apparue sur la page. Merci de la recharger."];

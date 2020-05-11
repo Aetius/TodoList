@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  *
  * @ORM\Table("user")
+ *
  * @UniqueEntity("email")
  * @UniqueEntity("username")
  */
@@ -27,18 +28,21 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=25, unique=true)
+     *
      * @Assert\NotBlank(message="Vous devez saisir un nom d'utilisateur.")
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *  * @Assert\NotBlank(message="Vous devez saisir un mot de passe")
+     *
+     * @Assert\NotBlank(message="Vous devez saisir un mot de passe")
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=60, unique=true)
+     *
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
      * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
      */
@@ -51,6 +55,7 @@ class User implements UserInterface
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Task", mappedBy="user", cascade={"persist"},  orphanRemoval=true)
+     *
      * @Assert\Valid()
      */
     private $tasks;

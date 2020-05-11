@@ -22,16 +22,27 @@ class TaskRepository extends ServiceEntityRepository
         parent::__construct($registry, Task::class);
     }
 
+    /**
+     * @param User $user
+     * @return Task|null
+     */
     public function findOneByUserId(User $user)
     {
         return $this->findOneBy(['user'=>$user], ['id'=>'DESC']);
     }
 
+    /**
+     * @param User $user
+     * @return Task[]
+     */
     public function findAllByUser(User $user)
     {
         return $this->findBy(['user'=>$user]);
     }
 
+    /**
+     * @return Task[]
+     */
     public function findAllUsersNull()
     {
         return $this->findBy(['user'=>null]);
