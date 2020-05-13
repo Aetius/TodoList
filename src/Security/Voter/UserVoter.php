@@ -32,7 +32,7 @@ class UserVoter extends Voter
             return false;
         }
 
-        if (!is_null($subject) && !$subject instanceof User){
+        if (($subject !== null) && !$subject instanceof User){
             return false;
         }
 

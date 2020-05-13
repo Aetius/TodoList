@@ -19,10 +19,10 @@ class UserTest extends TestCase
         $user = new User();
         $user->addTask($task);
         $this->assertTrue(($user->getTasks()) instanceof ArrayCollection);
-        $this->assertTrue($user->getTasks()->get("0")instanceof Task);
+        $this->assertTrue($user->getTasks()->get("0") instanceof Task);
 
         $user->removeTask($task);
-        $this->assertTrue(is_null($user->getTasks()->get("0")));
+        $this->assertTrue($user->getTasks()->get("0") === null);
     }
 
 
