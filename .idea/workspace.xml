@@ -20,54 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Service/FormService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/JoinUserToTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/JoinUserToTaskCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200504140923.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200504141524.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200504141953.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/user/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user/list.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/DefaultController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/SecurityController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/TaskController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/TaskController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/UserController.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/UserController.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Controller/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Controller/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/Task.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/Task.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/User.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/User.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Entity/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Entity/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/TaskType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/TaskType.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/UserType.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/UserType.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Form/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Form/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/TaskRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/TaskRepository.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/UserRepository.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/UserRepository.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Repository/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/LoginFormAuthenticator.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/LoginFormAuthenticator.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Authenticator/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/TaskVoter.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/TaskVoter.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/UserVoter.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/UserVoter.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/Voter/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Security/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Security/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/TaskService.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/TaskService.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/UserService.php.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/UserService.php.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/Service/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/Service/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test-coverage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/tests/test-coverage/index.html" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,11 +239,7 @@
       <workItem from="1588928069051" duration="10919000" />
       <workItem from="1589040562651" duration="473000" />
       <workItem from="1589045575880" duration="17348000" />
-      <workItem from="1589179054500" duration="9630000" />
-      <workItem from="1589285636356" duration="2421000" />
-      <workItem from="1589355567035" duration="49000" />
-      <workItem from="1589356190605" duration="3114000" />
-      <workItem from="1589393503449" duration="5436000" />
+
     </task>
     <servers />
   </component>
