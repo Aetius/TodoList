@@ -28,11 +28,11 @@ class UserVoter extends Voter
      */
     protected function supports($attribute, $subject)
     {
-        if (!in_array($attribute, ['admin_access', "form_user", "edit_user"])){
+        if (!in_array($attribute, ['admin_access', "form_user", "edit_user"])) {
             return false;
         }
 
-        if (($subject !== null) && !$subject instanceof User){
+        if (($subject !== null) && !$subject instanceof User) {
             return false;
         }
 
@@ -54,18 +54,18 @@ class UserVoter extends Voter
             return false;
         }
 
-        if (!$this->security->isGranted("ROLE_USER")){
+        if (!$this->security->isGranted("ROLE_USER")) {
             return false;
         }
 
         switch ($attribute) {
             case 'admin_access':
-                if($this->security->isGranted("ROLE_ADMIN")){
+                if ($this->security->isGranted("ROLE_ADMIN")) {
                     return true;
                 }
                 break;
             case 'form_user':
-                if($this->security->isGranted("ROLE_ADMIN")){
+                if ($this->security->isGranted("ROLE_ADMIN")) {
                     return true;
                 }
                 break;
@@ -73,7 +73,7 @@ class UserVoter extends Voter
                 if ($subject->getId() === $user->getId()) {
                     return true;
                 }
-                if ($this->security->isGranted("ROLE_ADMIN")){
+                if ($this->security->isGranted("ROLE_ADMIN")) {
                     return true;
                 }
                 break;

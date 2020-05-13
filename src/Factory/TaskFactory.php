@@ -3,7 +3,6 @@
 
 namespace App\Factory;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -22,5 +21,4 @@ class TaskFactory
 
         return $task;
     }
-
 }

@@ -3,7 +3,6 @@
 
 namespace Tests\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Config\Config;
 
@@ -37,7 +36,6 @@ class SecurityControllerTest extends WebTestCase
         ]);
         $this->client->submit($form);
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
-
     }
 
     public function testLoginSubmitFailedForm()

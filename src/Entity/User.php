@@ -20,7 +20,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
-
     public const ROLES = [
         "ROLE_USER"=>"Role utilisateur",
         "ROLE_ADMIN"=>"Role administrateur"
@@ -179,6 +178,4 @@ class User implements UserInterface
 
         return $this;
     }
-
-
 }

@@ -3,12 +3,11 @@
 
 namespace App\Fixtures\Processor;
 
-
 use App\Entity\User;
 use Fidry\AliceDataFixtures\ProcessorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
-class UserProcessor  implements ProcessorInterface
+class UserProcessor implements ProcessorInterface
 {
     /**
      * @var UserPasswordEncoderInterface
@@ -22,7 +21,7 @@ class UserProcessor  implements ProcessorInterface
 
     public function preProcess(string $id, $object): void
     {
-        if (false === $object instanceof User){
+        if (false === $object instanceof User) {
             return;
         }
         /** @var User $object */

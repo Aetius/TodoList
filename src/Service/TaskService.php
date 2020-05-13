@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use App\Repository\TaskRepository;
@@ -60,15 +59,15 @@ class TaskService
      */
     public function show(UserInterface $user)
     {
-        if (in_array('ROLE_USER', $user->getRoles())){
+        if (in_array('ROLE_USER', $user->getRoles())) {
             /**@var User $user */
             return $this->repository->findAllByUser($user);
         }
-        if (in_array('ROLE_ADMIN', $user->getRoles())){
+        if (in_array('ROLE_ADMIN', $user->getRoles())) {
             $anonymous = $this->userRepository->getAnonymous();
             return $this->repository->findAllByUser($anonymous);
         }
-        Throw new Exception('You must be logged to access this.');
+        throw new Exception('You must be logged to access this.');
     }
 
     /**
@@ -79,5 +78,4 @@ class TaskService
         $this->em->remove($task);
         $this->em->flush();
     }
-
 }

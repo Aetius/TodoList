@@ -3,7 +3,6 @@
 
 namespace App\Listener;
 
-
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
@@ -11,7 +10,6 @@ use Twig\Environment;
 
 class ExceptionListener
 {
-
     private $twig;
 
     /**
@@ -49,7 +47,5 @@ class ExceptionListener
                 $message = ["message" => "Une erreur est apparue sur la page. Merci de la recharger."];
         }
         return $event->setResponse(new Response($this->twig->render('errors/error.html.twig', $message)));
-
-
     }
 }

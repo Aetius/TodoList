@@ -3,7 +3,6 @@
 
 namespace Tests\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Config\Config;
@@ -25,7 +24,7 @@ class UserControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-/*****  Tests users action : display the list of all users  *******/
+    /*****  Tests users action : display the list of all users  *******/
     public function testListAction()
     {
         $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
@@ -49,7 +48,7 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
-/**** create Actions   *****/
+    /**** create Actions   *****/
     public function testCreateActionOkWithoutRole()
     {
         $crawler = $this->client->request('GET', '/users/create');
@@ -134,10 +133,10 @@ class UserControllerTest extends WebTestCase
 
 
 
-/**** Edit Actions   *****/
+    /**** Edit Actions   *****/
     public function testEditActionOkRoleAdmin()
     {
-        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN );
+        $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
         $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/2/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
@@ -155,7 +154,7 @@ class UserControllerTest extends WebTestCase
 
     public function testEditActionOkRoleUser()
     {
-        $user = $this->findOneByName($this->client, Config::ROLE_USER );
+        $user = $this->findOneByName($this->client, Config::ROLE_USER);
         $this->setAuthorization($this->client, $user);
         $crawler = $this->client->request('GET', '/users/2/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
@@ -172,7 +171,7 @@ class UserControllerTest extends WebTestCase
 
     public function testEditActionNokRoleUserTryChangeRole()
     {
-        $user = $this->findOneByName($this->client, Config::ROLE_USER );
+        $user = $this->findOneByName($this->client, Config::ROLE_USER);
         $this->setAuthorization($this->client, $user);
 
         $crawler = $this->client->request('GET', '/users/2/edit');
@@ -199,7 +198,7 @@ class UserControllerTest extends WebTestCase
         $this->assertEquals(1, $crawler->filter('html:contains("This form should not contain extra fields.")')->count());
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
-//This form should not contain extra fields.
+    //This form should not contain extra fields.
 
 
     public function testEditActionNokUserAlreadyUsed()

@@ -27,7 +27,7 @@ class TaskVoter extends Voter
      */
     protected function supports($attribute, $subject)
     {
-        if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])){
+        if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])) {
             return false;
         }
         return true;
@@ -47,13 +47,13 @@ class TaskVoter extends Voter
             return false;
         }
 
-        if (!$this->security->isGranted("ROLE_USER")){
+        if (!$this->security->isGranted("ROLE_USER")) {
             return false;
         }
 
         switch ($attribute) {
             case 'task_edit':
-                if ($subject->getUser()->getId() === $user->getId()){
+                if ($subject->getUser()->getId() === $user->getId()) {
                     return true;
                 }
                 break;
@@ -62,13 +62,13 @@ class TaskVoter extends Voter
                     return true;
 
             case 'task_delete':
-                if($subject->getUser()->getId() === $user->getId()){
+                if ($subject->getUser()->getId() === $user->getId()) {
                     return true;
                 }
-                if(in_array("ROLE_ANONYMOUS", $subject->getUser()->getRoles()) &&
-                    $this->security->isGranted("ROLE_ADMIN")){
+                if (in_array("ROLE_ANONYMOUS", $subject->getUser()->getRoles()) &&
+                    $this->security->isGranted("ROLE_ADMIN")) {
                     return true;
-                    }
+                }
                 break;
 
             case 'task_show':

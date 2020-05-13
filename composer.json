@@ -16,12 +16,14 @@
         "php": ">=7.3",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-pdo": "*",
         "dama/doctrine-test-bundle": "^6.3",
         "doctrine/dbal": "^2.10",
         "doctrine/doctrine-bundle": "^2.0",
         "doctrine/doctrine-cache-bundle": "^1.2",
         "doctrine/doctrine-migrations-bundle": "^2.1",
         "doctrine/orm": "^2.5",
+        "friendsofphp/php-cs-fixer": "^2.16",
         "hautelook/alice-bundle": "^2.7",
         "liip/test-fixtures-bundle": "^1.7",
         "sensio/framework-extra-bundle": "^5.0",
@@ -46,8 +48,7 @@
         "symfony/validator": "^4.0",
         "symfony/yaml": "^4.0",
         "twig/extra-bundle": "^3.0",
-        "twig/twig": "^3.0",
-        "ext-pdo": "*"
+        "twig/twig": "^3.0"
     },
     "require-dev": {
         "symfony/phpunit-bridge": "^4.0",
