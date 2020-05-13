@@ -19,6 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
+
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/TodoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TodoList.iml" afterDir="false" />
@@ -71,6 +72,7 @@
       <change beforePath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bootstrap.php" afterDir="false" />
     </list>
+
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -243,9 +245,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.phpunit.xml.dist" />
-      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
       <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
+      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
     </list>
     <recent_temporary>
       <list>
@@ -293,11 +295,6 @@
       <workItem from="1588928069051" duration="10919000" />
       <workItem from="1589040562651" duration="473000" />
       <workItem from="1589045575880" duration="17348000" />
-      <workItem from="1589179054500" duration="9630000" />
-      <workItem from="1589285636356" duration="2421000" />
-      <workItem from="1589355567035" duration="49000" />
-      <workItem from="1589356190605" duration="3114000" />
-      <workItem from="1589393503449" duration="5436000" />
     </task>
     <servers />
   </component>
