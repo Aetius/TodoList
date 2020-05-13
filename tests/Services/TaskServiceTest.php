@@ -3,7 +3,6 @@
 
 namespace Tests\Services;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use App\Repository\UserRepository;
@@ -104,7 +103,5 @@ class TaskServiceTest extends KernelTestCase
         $service = new TaskService($this->em, $this->taskRepository, $this->userRepository);
         $this->expectException(Exception::class);
         $service->show($this->wrongUserInterface);
-
     }
-
 }

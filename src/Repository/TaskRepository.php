@@ -3,7 +3,6 @@
 
 namespace App\Repository;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -47,6 +46,4 @@ class TaskRepository extends ServiceEntityRepository
     {
         return $this->findBy(['user'=>null]);
     }
-
-
 }

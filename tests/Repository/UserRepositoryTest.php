@@ -3,7 +3,6 @@
 
 namespace Tests\Repository;
 
-
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -68,8 +67,4 @@ trait UserRepositoryTest
             ->findByRole($role);
         return $user;
     }
-
-
-
-
 }

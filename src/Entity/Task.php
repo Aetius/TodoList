@@ -98,7 +98,6 @@ class Task
     public function isDone()
     {
         return $this->isDone;
-
     }
 
     public function toggle($flag)

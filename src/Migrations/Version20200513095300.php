@@ -22,14 +22,14 @@ final class Version20200513095300 extends AbstractMigration
         $db = ($this->connection);
 
         $users = $db->fetchAll('SELECT * FROM user ');
-        if (!is_null($users)){
-            foreach ($users as $user){
-                if($user['roles'] === "null"){
+        if (!is_null($users)) {
+            foreach ($users as $user) {
+                if ($user['roles'] === "null") {
                     $db->executeQuery('UPDATE user SET roles=JSON_ARRAY("ROLE_USER")');
                 }
             }
         }
-        $db->executeQuery ('INSERT INTO user (username, password, email, roles) VALUES ("anonymous", "anonymous", "anonymous@anonymous.fr", JSON_ARRAY("ROLE_ANONYMOUS") )');
+        $db->executeQuery('INSERT INTO user (username, password, email, roles) VALUES ("anonymous", "anonymous", "anonymous@anonymous.fr", JSON_ARRAY("ROLE_ANONYMOUS") )');
         $anonymous = $db->fetchAll('SELECT * FROM user WHERE username="anonymous"');
         $anonymousId = $anonymous[0]['id'];
         $db->executeQuery('ALTER TABLE task ADD user_id INT DEFAULT NULL');

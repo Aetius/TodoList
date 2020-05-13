@@ -3,7 +3,6 @@
 
 namespace Tests\Controller;
 
-
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Tests\Config\Config;
@@ -13,7 +12,6 @@ use Tests\Security\Connexion;
 
 class TaskControllerTest extends WebTestCase
 {
-
     use Connexion;
     use UserRepositoryTest;
     use TaskRepositoryTest;
@@ -28,7 +26,7 @@ class TaskControllerTest extends WebTestCase
         $this->client = static::createClient();
     }
 
-/****  Task list  ****/
+    /****  Task list  ****/
     public function testListActionOk()
     {
         $user = $this->findLastUser($this->client);
@@ -46,7 +44,7 @@ class TaskControllerTest extends WebTestCase
     }
 
 
-/**** task create  ****/
+    /**** task create  ****/
     public function testCreateActionOk()
     {
         $user = $this->findLastUser($this->client);
@@ -101,7 +99,7 @@ class TaskControllerTest extends WebTestCase
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
 
-/****  task edit  ****/
+    /****  task edit  ****/
     public function testEditActionOk()
     {
         $user = $this->findLastUser($this->client);
@@ -159,7 +157,7 @@ class TaskControllerTest extends WebTestCase
     }
 
 
-/**** Delete Task ****/
+    /**** Delete Task ****/
     public function testDeleteTaskActionByOwnerTaskOk()
     {
         $user = $this->findLastUser($this->client);
@@ -186,7 +184,6 @@ class TaskControllerTest extends WebTestCase
             [],
         );
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
-
     }
 
     public function testDeleteTaskActionNokWithoutAuthorization()
@@ -217,7 +214,7 @@ class TaskControllerTest extends WebTestCase
     }
 
 
-/**** Task toggle ****/
+    /**** Task toggle ****/
 
     public function testToggleTaskActionOk()
     {
@@ -255,5 +252,4 @@ class TaskControllerTest extends WebTestCase
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
-
 }

@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use App\Entity\User;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -47,7 +46,6 @@ class UserService
     public function getUsers()
     {
         $users = $this->repository->findAllExceptAnonymous();
-     return $users;
+        return $users;
     }
-
 }

@@ -33,12 +33,11 @@ class UserRepository extends ServiceEntityRepository
 
     public function findAllExceptAnonymous()
     {
-       return( $this->createQueryBuilder('p')
+        return($this->createQueryBuilder('p')
         ->where("p.roles LIKE'[\"ROLE_USER\"]'")
         ->orWhere("p.roles LIKE'[\"ROLE_ADMIN\"]'")
            ->getQuery()
            ->getResult());
-
     }
     /**
      * @param string $name
@@ -53,5 +52,4 @@ class UserRepository extends ServiceEntityRepository
     {
         return $this->findOneBy(['username'=>self::ANONYMOUS]);
     }
-
 }

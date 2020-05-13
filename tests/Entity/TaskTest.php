@@ -3,7 +3,6 @@
 
 namespace Tests\Entity;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use Doctrine\ORM\EntityManager;
@@ -15,7 +14,6 @@ use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 class TaskTest extends KernelTestCase
 {
-
     public function testEntityOk()
     {
         $task = $this->getEntity();
@@ -43,7 +41,7 @@ class TaskTest extends KernelTestCase
 
 
 
-/**** Methods for the validation *****/
+    /**** Methods for the validation *****/
     public function getEntity()
     {
         self::bootKernel();
@@ -81,5 +79,4 @@ class TaskTest extends KernelTestCase
         $task->setCreatedAt("01/02/2020");
         $this->assertFalse($task->getCreatedAt() instanceof \DateTime);
     }
-
 }

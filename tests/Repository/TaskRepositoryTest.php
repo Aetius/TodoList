@@ -3,7 +3,6 @@
 
 namespace Tests\Repository;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
@@ -29,11 +28,4 @@ trait TaskRepositoryTest
             ->findOneByUserId($user);
         return $user;
     }
-
-
-
-
-
-
-
 }

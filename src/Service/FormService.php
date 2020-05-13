@@ -3,7 +3,6 @@
 
 namespace App\Service;
 
-
 use Symfony\Component\Security\Core\Security;
 
 class FormService
@@ -20,7 +19,7 @@ class FormService
 
     public function defineRole()
     {
-        if($this->security->isGranted('form_user')){
+        if ($this->security->isGranted('form_user')) {
             return true;
         }
         return false;

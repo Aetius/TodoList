@@ -3,7 +3,6 @@
 
 namespace Tests\Security;
 
-
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Component\BrowserKit\Cookie;
@@ -18,7 +17,7 @@ trait Connexion
     private $user;
 
 
-    public function setAuthorization(KernelBrowser $client, User $user )
+    public function setAuthorization(KernelBrowser $client, User $user)
     {
         $session = $client->getContainer()->get('session');
         $token = new UsernamePasswordToken($user, null, 'main', $user->getRoles());

@@ -3,7 +3,6 @@
 
 namespace App\Command;
 
-
 use App\Entity\User;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
@@ -28,10 +27,13 @@ class JoinUserToTaskCommand extends Command
      */
     private $taskRepository;
 
-    public function __construct(UserRepository $userRepository, TaskRepository $taskRepository, EntityManagerInterface $em,
-                                string $name = null)
+    public function __construct(
+        UserRepository $userRepository,
+        TaskRepository $taskRepository,
+        EntityManagerInterface $em,
+        string $name = null
+    )
     {
-
         $this->userRepository = $userRepository;
         $this->em = $em;
         $this->taskRepository = $taskRepository;
@@ -89,5 +91,4 @@ class JoinUserToTaskCommand extends Command
         $this->em->flush();
         return $tasks;
     }
-
 }

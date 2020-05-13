@@ -3,7 +3,6 @@
 
 namespace Tests\Factory;
 
-
 use App\Entity\Task;
 use App\Entity\User;
 use App\Factory\TaskFactory;
