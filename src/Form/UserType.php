@@ -16,18 +16,10 @@ class UserType extends AbstractType
 {
 
     /**
-     * @var Security
-     */
-    private $security;
-    /**
      * @var mixed
      */
     private $user;
 
-    public function __construct(Security $security)
-    {
-        $this->security = $security;
-    }
 
     /**
      * @param FormBuilderInterface $builder
@@ -53,17 +45,11 @@ class UserType extends AbstractType
                 'required' => $options['required'],
             ]);
 
-        if ($this->security->isGranted("form_user")) {
+        if ($options['with_role_choice']) {
             $this->user = $options['data'];
-            $builder->add('roles', ChoiceType::class, [
+            $builder->add('role', ChoiceType::class, [
                 'choices' => $this->getRolesChoices(),
-                'choice_attr' => function ($choice) {
-                    if ($choice === $this->user->getRoles()[0]) {
-                        return ['selected' => true];
-                    }
-                    return [];
-                },
-                'mapped' => false
+
             ]);
         }
     }
@@ -72,8 +58,10 @@ class UserType extends AbstractType
     {
         $resolver->setDefaults([
             'required' => true,
+            'with_role_choice' => false,
         ]);
         $resolver->setAllowedTypes('required', 'bool');
+        $resolver->setAllowedTypes('with_role_choice', 'bool');
     }
 
     private function getRolesChoices()
