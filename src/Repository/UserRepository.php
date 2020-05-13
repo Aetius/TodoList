@@ -49,4 +49,9 @@ class UserRepository extends ServiceEntityRepository
         return $this->findOneBy(['username'=>$name]);
     }
 
+    public function getAnonymous()
+    {
+        return $this->findOneBy(['username'=>self::ANONYMOUS]);
+    }
+
 }

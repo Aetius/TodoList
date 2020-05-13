@@ -38,6 +38,7 @@ class JoinUserToTaskCommand extends Command
         parent::__construct($name);
     }
 
+
     protected static $defaultName = 'app:add-anonymous-user-to-table';
 
     protected function configure()
@@ -62,12 +63,12 @@ class JoinUserToTaskCommand extends Command
      */
     private function anonymousUser()
     {
-        $user = $this->userRepository->findOneByName("anonymous");
-        if (is_null($user)) {
+        $user = $this->userRepository->getAnonymous();
+        if (($user === null)) {
             $user = (new User())
-                ->setUsername('anonymous')
+                ->setUsername(UserRepository::ANONYMOUS)
                 ->setEmail("anonymous@anonymous.fr")
-                ->setPassword("anonymous")
+                ->setPassword(UserRepository::ANONYMOUS)
                 ->setRoles(['ROLE_ANONYMOUS']);
             $this->em->persist($user);
             $this->em->flush();

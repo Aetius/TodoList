@@ -14,7 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 class TaskServiceTest extends KernelTestCase
 {
     private $userInterfaceAdmin;
-    private $userAnonymous;
     private $em;
     private $tasks;
     private $taskRepository;
@@ -74,7 +73,6 @@ class TaskServiceTest extends KernelTestCase
         $this->userRepository = $this->getMockBuilder('App\Repository\UserRepository')
             ->disableOriginalConstructor()
             ->getMock();
-
     }
 
 
@@ -82,9 +80,10 @@ class TaskServiceTest extends KernelTestCase
     {
         $service = new TaskService($this->em, $this->taskRepository, $this->userRepository);
 
-        $this->userRepository->method('findOneByName')->willReturn($this->userAnonynous);
-
-        $test = $service->show($this->userInterfaceAdmin);
+        $this->userRepository->method('getAnonymous')->willReturn($this->userAnonynous);
+        $user = new User();
+        $user->setRoles(['ROLE_ADMIN']);
+        $test = $service->show($user);
 
         $this->assertIsArray($test);
         $this->assertEquals(2, count($test));

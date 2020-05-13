@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Factory\UserFactory;
 use App\Form\UserType;
-use App\Repository\UserRepository;
+use App\Service\FormService;
 use App\Service\UserService;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,23 +19,25 @@ class UserController extends AbstractController
      *
      * @IsGranted("admin_access")
      */
-    public function list(UserRepository $repository)
+    public function list(UserService $service)
     {
-        return $this->render('user/list.html.twig', ['users' => $repository->findAllExceptAnonymous()]);
+        $users = $service->getUsers();
+        return $this->render('user/list.html.twig', ['users' => $users]);
     }
 
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function create(Request $request, UserService $service, UserFactory $factory)
+    public function create(Request $request, UserService $service, UserFactory $factory, FormService $formService)
     {
+        $roleChoice = $formService->defineRole();
         $user = $factory->create($this->getUser());
-        $form = $this->createForm(UserType::class, $user);
+        $form = $this->createForm(UserType::class, $user, ['required'=>true, 'with_role_choice'=>$roleChoice]);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $service->manager($user, $request->request->get('user'));
+            $user = $service->manager($user);
             $service->save($user);
 
             $this->addFlash('success', "L'utilisateur a bien été ajouté.");
@@ -51,14 +53,15 @@ class UserController extends AbstractController
      *
      * @IsGranted("edit_user", subject="user")
      */
-    public function edit(User $user, Request $request, UserService $service)
+    public function edit(User $user, Request $request, UserService $service, FormService $formService)
     {
-        $form = $this->createForm(UserType::class, $user, ['required'=>false]);
+        $roleChoice = $formService->defineRole();
+        $form = $this->createForm(UserType::class, $user, ['required'=>false, 'with_role_choice'=>$roleChoice]);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $user = $service->manager($user, $request->request->get('user'));
+            $user = $service->manager($user);
             $service->save($user);
 
             $this->addFlash('success', "L'utilisateur a bien été modifié");
