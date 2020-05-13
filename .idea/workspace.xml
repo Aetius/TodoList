@@ -19,9 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-
-    </list>
+    <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,9 +187,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.phpunit.xml.dist" />
-      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
       <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
+      <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
     </list>
     <recent_temporary>
       <list>
@@ -239,7 +237,6 @@
       <workItem from="1588928069051" duration="10919000" />
       <workItem from="1589040562651" duration="473000" />
       <workItem from="1589045575880" duration="17348000" />
-
     </task>
     <servers />
   </component>
