@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Self_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -19,6 +20,12 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class User implements UserInterface
 {
+
+    public const ROLES = [
+        "ROLE_USER"=>"Role utilisateur",
+        "ROLE_ADMIN"=>"Role administrateur"
+    ];
+
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -124,6 +131,22 @@ class User implements UserInterface
         $this->roles = $roles;
 
         return $this;
+    }
+
+    public function getRole()
+    {
+        return reset($this->roles);
+    }
+
+    public function setRole($role)
+    {
+        $this->roles = [$role];
+        return $this;
+    }
+
+    public function getFormatedRole()
+    {
+        return self::ROLES[$this->getRole()];
     }
 
     /**

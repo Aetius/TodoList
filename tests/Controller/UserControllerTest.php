@@ -78,7 +78,7 @@ class UserControllerTest extends WebTestCase
         $form["user[password][first]"] = "test";
         $form["user[password][second]"] = "test";
         $form["user[email]"] = "test@test.fr";
-        $form["user[roles]"] = "ROLE_ADMIN";
+        $form["user[role]"] = "ROLE_ADMIN";
 
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
@@ -148,7 +148,7 @@ class UserControllerTest extends WebTestCase
         $form["user[password][first]"] = "demo";
         $form["user[password][second]"] = "demo";
         $form["user[email]"] = "demo2@demo.fr";
-        $form["user[roles]"] = "ROLE_ADMIN";
+        $form["user[role]"] = "ROLE_ADMIN";
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }

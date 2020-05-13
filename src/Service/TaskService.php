@@ -65,8 +65,8 @@ class TaskService
             return $this->repository->findAllByUser($user);
         }
         if (in_array('ROLE_ADMIN', $user->getRoles())){
-            $anonyme = $this->userRepository->findOneByName(UserRepository::ANONYMOUS);
-            return $this->repository->findAllByUser($anonyme);
+            $anonymous = $this->userRepository->getAnonymous();
+            return $this->repository->findAllByUser($anonymous);
         }
         Throw new Exception('You must be logged to access this.');
     }
