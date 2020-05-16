@@ -19,60 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TodoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TodoList.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bootstrap.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AppCache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/AppCache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command/JoinUserToTaskCommand.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/JoinUserToTaskCommand.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/SecurityController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/SecurityController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Task.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Task.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factory/TaskFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factory/TaskFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Factory/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Factory/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Fixtures/Processor/UserProcessor.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Fixtures/Processor/UserProcessor.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/TaskType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/TaskType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200513094833.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200513094833.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200513095211.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200513095211.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Migrations/Version20200513095300.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Migrations/Version20200513095300.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TaskRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TaskRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Authenticator/LoginFormAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/TaskVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/Voter/UserVoter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/FormService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/FormService.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserService.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Config/Config.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Config/Config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/DefaultControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/SecurityControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/SecurityControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/TaskControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Controller/UserControllerTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/TaskTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/TaskTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Entity/UserTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Entity/UserTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Factory/TaskFactoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Factory/TaskFactoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Factory/UserFactoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Factory/UserFactoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Repository/RepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/RepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Repository/TaskRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/TaskRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Repository/UserRepositoryTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Security/Connexion.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Security/Connexion.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/task/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/task/list.html.twig" afterDir="false" />
     </list>
-
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -245,9 +199,9 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
       <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
       <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
-      <item itemvalue="PHPUnit.phpunit.xml.dist" />
     </list>
     <recent_temporary>
       <list>
@@ -295,6 +249,10 @@
       <workItem from="1588928069051" duration="10919000" />
       <workItem from="1589040562651" duration="473000" />
       <workItem from="1589045575880" duration="17348000" />
+      <workItem from="1589403601759" duration="369000" />
+      <workItem from="1589438444145" duration="7400000" />
+      <workItem from="1589568328294" duration="4655000" />
+      <workItem from="1589633839975" duration="144000" />
     </task>
     <servers />
   </component>
@@ -356,10 +314,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1218" y="435" key="ComposerInitDialogKey/0.0.1920.1040@0.0.1920.1040" timestamp="1587285426462" />
-    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1589179063186">
+    <state x="740" y="278" key="FileChooserDialogImpl" timestamp="1589615301788">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1589179063186" />
+    <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1589615301788" />
     <state x="2568" y="304" key="FileChooserDialogImpl/0.0.1920.1040/1920.34.1680.1010@1920.34.1680.1010" timestamp="1587991212502" />
     <state x="740" y="278" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589119973413" />
     <state x="1237" y="246" key="NewPhpClassDialog" timestamp="1589394162224">
