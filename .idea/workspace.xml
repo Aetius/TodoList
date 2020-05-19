@@ -20,12 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fd167fc8-9d4e-4d03-822b-bedf5ba827ba" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error404.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/TodoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TodoList.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/TaskController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/TaskController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/dev/web_profiler.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/test/web_profiler.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes/dev/web_profiler.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Listener/ExceptionListener.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/TaskService.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/TaskService.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/task/list.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/task/list.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/errors/error.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bundles/TwigBundle/Exception/error403.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Services/TaskServiceTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +57,6 @@
     <include_path>
       <path value="$PROJECT_DIR$/vendor/symfony/routing" />
       <path value="$PROJECT_DIR$/vendor/symfony/property-access" />
-      <path value="$PROJECT_DIR$/vendor/symfony/profiler-pack" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php73" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
@@ -135,7 +146,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/browser-kit" />
       <path value="$PROJECT_DIR$/vendor/symfony/security-csrf" />
       <path value="$PROJECT_DIR$/vendor/symfony/twig-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-code" />
       <path value="$PROJECT_DIR$/vendor/zendframework/zend-eventmanager" />
       <path value="$PROJECT_DIR$/vendor/doctrine/migrations" />
@@ -146,6 +156,9 @@
       <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
       <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
       <path value="$PROJECT_DIR$/vendor/friendsofphp/php-cs-fixer" />
+      <path value="$PROJECT_DIR$/vendor/symfony/profiler-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/web-profiler-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/twig-pack" />
     </include_path>
   </component>
   <component name="ProjectId" id="1aRfEBDgcQ8pEQ0CieF4DUDhMOH" />
@@ -253,6 +266,7 @@
       <workItem from="1589438444145" duration="7400000" />
       <workItem from="1589568328294" duration="4655000" />
       <workItem from="1589633839975" duration="144000" />
+      <workItem from="1589811422550" duration="15954000" />
     </task>
     <servers />
   </component>
@@ -288,10 +302,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588256449714" />
-    <state x="660" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1587580264444">
+    <state x="660" y="321" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1589894308949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="660" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1587580264444" />
+    <state x="660" y="321" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1589894308949" />
     <state x="1181" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1588256284893">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -359,11 +373,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="988" y="244" width="672" height="677" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1589118488065" />
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1589193888737">
+    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup" timestamp="1589894391095">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1024.0.1024.728@0.0.1920.1040" timestamp="1589193888737" />
-    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1588837333285" />
+    <state x="1010" y="143" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.34.1680.1010@0.0.1920.1040" timestamp="1589894391095" />
     <state x="1103" y="230" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1587309792854" />
   </component>
 </project>
