@@ -212,9 +212,9 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="PHPUnit.phpunit.xml.dist" />
       <item itemvalue="PHPUnit.TaskServiceTest.testShowRoleAdminOk" />
       <item itemvalue="PHPUnit.UserControllerTest.testCreateActionNokUserAlreadyUsed" />
+      <item itemvalue="PHPUnit.phpunit.xml.dist" />
     </list>
     <recent_temporary>
       <list>
