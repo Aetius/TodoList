@@ -1,6 +1,8 @@
 ToDoList
 ========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9e2d7d17aeac4784bf767eea4ac45798)](https://app.codacy.com/manual/Aetius/TodoList?utm_source=github.com&utm_medium=referral&utm_content=Aetius/TodoList&utm_campaign=Badge_Grade_Dashboard)
+
 The TodoList project was initially developed in Symfony 3.1 and upgraded in Symfony 4.4 (last LTS in May 2020). 
 This application is designed to help people to plan theirs tasks. For this purpose, the application allows the user to 
 subscribe and to add et to delete some tasks. 
