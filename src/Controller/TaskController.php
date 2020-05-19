@@ -71,12 +71,13 @@ class TaskController extends AbstractController
      *
      * @IsGranted("task_edit", subject="task")
      */
-    public function toggleTask(Task $task, TaskService $service)
+    public function toggleTask(Task $task, TaskService $service, Request $request)
     {
-        $task = $service->updateToggle($task);
-        $service->save($task);
-
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        if ($this->isCsrfTokenValid('toggle-'.$task->getId(), $request->get('token'))){
+            $task = $service->updateToggle($task);
+            $service->save($task);
+            $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
+        }
 
         return $this->redirectToRoute('task_list');
     }
@@ -86,11 +87,12 @@ class TaskController extends AbstractController
      *
      * @IsGranted("task_delete", subject="task")
      */
-    public function deleteTask(Task $task, TaskService $service)
+    public function deleteTask(Task $task, TaskService $service, Request $request)
     {
-        $service->delete($task);
-
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
+        if ($this->isCsrfTokenValid('delete-'.$task->getId(), $request->get('token'))){
+            $service->delete($task);
+            $this->addFlash('success', 'La tâche a bien été supprimée.');
+        }
 
         return $this->redirectToRoute('task_list');
     }

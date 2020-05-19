@@ -8,7 +8,7 @@ use App\Entity\User;
 use App\Repository\TaskRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use PHPUnit\Util\Exception;
+use Exception;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 class TaskService
@@ -59,13 +59,16 @@ class TaskService
      */
     public function show(UserInterface $user)
     {
+        /**@var User $user */
         if (in_array('ROLE_USER', $user->getRoles())) {
-            /**@var User $user */
             return $this->repository->findAllByUser($user);
         }
         if (in_array('ROLE_ADMIN', $user->getRoles())) {
             $anonymous = $this->userRepository->getAnonymous();
-            return $this->repository->findAllByUser($anonymous);
+            $tasksAnonymous = $this->repository->findAllByUser($anonymous);
+            $tasksUser = $this->repository->findAllByUser($user);
+            $tasks = array_merge($tasksAnonymous, $tasksUser);
+            return $tasks;
         }
         throw new Exception('You must be logged to access this.');
     }
