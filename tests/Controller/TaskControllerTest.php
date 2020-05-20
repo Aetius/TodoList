@@ -9,12 +9,14 @@ use Tests\Config\Config;
 use Tests\Repository\TaskRepositoryTest;
 use Tests\Repository\UserRepositoryTest;
 use Tests\Security\Connexion;
+use Tests\Security\CSRFToken;
 
 class TaskControllerTest extends WebTestCase
 {
     use Connexion;
     use UserRepositoryTest;
     use TaskRepositoryTest;
+    use CSRFToken;
 
     /**
      *@var  KernelBrowser
@@ -162,12 +164,15 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $taskId = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $token = $this->getCsrfToken($this->client, $taskId, 'toggle');
 
         $this->client->request(
-            'GET',
-            "/tasks/$task/delete",
-            [],
+            'POST',
+            "/tasks/$taskId/delete",
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
@@ -177,21 +182,27 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $token = $this->getCsrfToken($this->client, "1", 'toggle');
 
         $this->client->request(
-            'GET',
+            'POST',
             "/tasks/1/delete",
-            [],
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
     public function testDeleteTaskActionNokWithoutAuthorization()
     {
+        $token = $this->getCsrfToken($this->client, "1", 'toggle');
         $this->client->request(
-            'GET',
+            'POST',
             '/tasks/1/delete',
-            [],
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
@@ -202,12 +213,15 @@ class TaskControllerTest extends WebTestCase
         $user = $this->findOneByName($this->client, Config::ROLE_ADMIN);
         $this->setAuthorization($this->client, $user);
         $anonymous = $this->findOneByName($this->client, Config::ROLE_ANONYMOUS);
-        $task = $this->findLastTaskByUserId($this->client, $anonymous)->getId();
+        $taskId = $this->findLastTaskByUserId($this->client, $anonymous)->getId();
+        $token = $this->getCsrfToken($this->client, $taskId, 'delete');
 
         $this->client->request(
-            'GET',
-            "/tasks/$task/delete",
-            [],
+            'POST',
+            "/tasks/$taskId/delete",
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
@@ -220,11 +234,14 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $task = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $taskId = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $token = $this->getCsrfToken($this->client, $taskId, 'toggle');
         $this->client->request(
-            'GET',
-            "/tasks/$task/toggle",
-            [],
+            'POST',
+            "/tasks/$taskId/toggle",
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
@@ -234,22 +251,43 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
+        $token = $this->getCsrfToken($this->client, "1", 'toggle');
         $this->client->request(
-            'GET',
+            'POST',
             '/tasks/1/toggle',
-            [],
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
     }
 
     public function testToggleTaskActionNokWithoutAuthorization()
     {
+        $token = $this->getCsrfToken($this->client, "1", 'toggle');
         $this->client->request(
-            'GET',
+            'POST',
             '/tasks/1/toggle',
-            [],
+            [
+                'token'=>$token
+            ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
+
+    public function testToggleTaskActionNokWithoutToken()
+    {
+        $user = $this->findLastUser($this->client);
+        $this->setAuthorization($this->client, $user);
+        $taskId = $this->findLastTaskByUserId($this->client, $user)->getId();
+        $this->client->request(
+            'POST',
+            "/tasks/$taskId/toggle",
+            [],
+        );
+        $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
+        $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
+    }
+
 }

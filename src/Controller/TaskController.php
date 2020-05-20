@@ -67,7 +67,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle", methods={"GET"})
+     * @Route("/tasks/{id}/toggle", name="task_toggle", methods={"POST"})
      *
      * @IsGranted("task_edit", subject="task")
      */
@@ -83,7 +83,7 @@ class TaskController extends AbstractController
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete", methods={"GET"})
+     * @Route("/tasks/{id}/delete", name="task_delete", methods={"POST"})
      *
      * @IsGranted("task_delete", subject="task")
      */

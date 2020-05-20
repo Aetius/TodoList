@@ -16,13 +16,13 @@
                     <p>{{ task.content }}</p>
                 </div>
                 <div>
-                    <form action="{{ path('task_toggle', {'id' : task.id }) }}">
+                    <form action="{{ path('task_toggle', {'id' : task.id }) }}" method="post">
                         <input type="hidden" name="token" value="{{ csrf_token('toggle-'~task.id) }}"/>
                         <button class="btn btn-success btn-sm pull-right">
                             {% if not task.isDone %}Marquer comme faite{% else %}Marquer non terminée{% endif %}
                         </button>
                     </form>
-                    <form action="{{ path('task_delete', {'id' : task.id }) }}">
+                    <form action="{{ path('task_delete', {'id' : task.id }) }}" method="post">
                         <input type="hidden" name="token" value="{{ csrf_token('delete-'~task.id) }}"/>
                         <button class="btn btn-danger btn-sm pull-right">Supprimer</button>
                     </form>

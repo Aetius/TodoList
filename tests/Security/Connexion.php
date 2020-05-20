@@ -17,6 +17,10 @@ trait Connexion
     private $user;
 
 
+    /**
+     * @param KernelBrowser $client
+     * @param User $user
+     */
     public function setAuthorization(KernelBrowser $client, User $user)
     {
         $session = $client->getContainer()->get('session');

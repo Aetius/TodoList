@@ -8,6 +8,8 @@ As an admin, you will have access to all users, and you could delete the anonymo
 application). 
 
 ###To install this application
+
+
 #####Install the project : 
 - Click on "clone or download" : If you choose 'Open in Desktop', you will upload these files directly from github, by 
 GitHub Desktop (from example) If you choose to copy these files in .zip,
