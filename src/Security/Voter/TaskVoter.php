@@ -9,7 +9,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class TaskVoter extends Voter
 {
-
     /**
      * @var Security
      */
@@ -22,21 +21,23 @@ class TaskVoter extends Voter
 
     /**
      * @param string $attribute
-     * @param mixed $subject
+     * @param mixed  $subject
+     *
      * @return bool
      */
     protected function supports($attribute, $subject)
     {
-        if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', "task_show"])) {
+        if (!in_array($attribute, ['task_edit', 'task_delete', 'task_create', 'task_show'])) {
             return false;
         }
+
         return true;
     }
 
     /**
      * @param string $attribute
-     * @param mixed $subject
-     * @param TokenInterface $token
+     * @param mixed  $subject
+     *
      * @return bool
      */
     protected function voteOnAttribute($attribute, $subject, TokenInterface $token)
@@ -47,7 +48,7 @@ class TaskVoter extends Voter
             return false;
         }
 
-        if (!$this->security->isGranted("ROLE_USER")) {
+        if (!$this->security->isGranted('ROLE_USER')) {
             return false;
         }
 
@@ -65,8 +66,8 @@ class TaskVoter extends Voter
                 if ($subject->getUser()->getId() === $user->getId()) {
                     return true;
                 }
-                if (in_array("ROLE_ANONYMOUS", $subject->getUser()->getRoles()) &&
-                    $this->security->isGranted("ROLE_ADMIN")) {
+                if (in_array('ROLE_ANONYMOUS', $subject->getUser()->getRoles()) &&
+                    $this->security->isGranted('ROLE_ADMIN')) {
                     return true;
                 }
                 break;
@@ -74,6 +75,7 @@ class TaskVoter extends Voter
             case 'task_show':
                     return true;
         }
+
         return false;
     }
 }

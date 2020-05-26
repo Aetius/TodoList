@@ -1,10 +1,8 @@
 <?php
 
-
 namespace Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Tests\Config\Config;
 
 class SecurityControllerTest extends WebTestCase
 {
@@ -20,7 +18,7 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form([
             '_username' => 'demo',
-            '_password' => 'demo'
+            '_password' => 'demo',
         ]);
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/'));
@@ -32,7 +30,7 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form([
             '_username' => 'anonymous',
-            '_password' => 'anonymous'
+            '_password' => 'anonymous',
         ]);
         $this->client->submit($form);
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
@@ -43,7 +41,7 @@ class SecurityControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/login');
         $form = $crawler->selectButton('Se connecter')->form([
             '_username' => 'raté',
-            '_password' => 'falsePassword'
+            '_password' => 'falsePassword',
         ]);
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));

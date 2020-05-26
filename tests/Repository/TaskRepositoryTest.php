@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Repository;
 
 use App\Entity\Task;
@@ -10,9 +9,7 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 trait TaskRepositoryTest
 {
-
     /**
-     * @param KernelBrowser $client
      * @return User|null
      */
     public function findLastTaskByUserId(KernelBrowser $client, User $user)
@@ -26,6 +23,7 @@ trait TaskRepositoryTest
         $user = $entityManager
             ->getRepository(Task::class)
             ->findOneByUserId($user);
+
         return $user;
     }
 }

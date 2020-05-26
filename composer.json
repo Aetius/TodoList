@@ -25,6 +25,7 @@
         "doctrine/orm": "^2.5",
         "friendsofphp/php-cs-fixer": "^2.16",
         "hautelook/alice-bundle": "^2.7",
+        "laminas/laminas-code": "^3.4",
         "liip/test-fixtures-bundle": "^1.7",
         "sensio/framework-extra-bundle": "^5.0",
         "symfony/asset": "^4.0",

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Service;
 
 use App\Entity\Task;
@@ -13,7 +12,6 @@ use Symfony\Component\Security\Core\User\UserInterface;
 
 class TaskService
 {
-
     /**
      * @var EntityManagerInterface
      */
@@ -34,9 +32,6 @@ class TaskService
         $this->userRepository = $userRepository;
     }
 
-    /**
-     * @param Task $task
-     */
     public function save(Task $task)
     {
         $this->em->persist($task);
@@ -44,22 +39,21 @@ class TaskService
     }
 
     /**
-     * @param Task $task
      * @return Task
      */
     public function updateToggle(Task $task)
     {
         $task->toggle(!$task->isDone());
+
         return $task;
     }
 
     /**
-     * @param UserInterface $user
      * @return Task[]
      */
     public function show(UserInterface $user)
     {
-        /**@var User $user */
+        /** @var User $user */
         if (in_array('ROLE_USER', $user->getRoles())) {
             return $this->repository->findAllByUser($user);
         }
@@ -68,14 +62,12 @@ class TaskService
             $tasksAnonymous = $this->repository->findAllByUser($anonymous);
             $tasksUser = $this->repository->findAllByUser($user);
             $tasks = array_merge($tasksAnonymous, $tasksUser);
+
             return $tasks;
         }
         throw new Exception('You must be logged to access this.');
     }
 
-    /**
-     * @param Task $task
-     */
     public function delete(Task $task)
     {
         $this->em->remove($task);

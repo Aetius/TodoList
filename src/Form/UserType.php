@@ -10,21 +10,9 @@ use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use Symfony\Component\Security\Core\Security;
 
 class UserType extends AbstractType
 {
-
-    /**
-     * @var mixed
-     */
-    private $user;
-
-
-    /**
-     * @param FormBuilderInterface $builder
-     * @param array $options
-     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -38,18 +26,17 @@ class UserType extends AbstractType
                 'required' => $options['required'],
                 'first_options' => ['label' => 'Mot de passe'],
                 'second_options' => ['label' => 'Tapez le mot de passe à nouveau'],
-                'mapped' => $options['required']
+                'mapped' => $options['required'],
             ])
             ->add('email', EmailType::class, [
                 'label' => 'Adresse email',
                 'required' => $options['required'],
             ]);
 
-        if ($options['with_role_choice']) {
+        if (true === $options['with_role_choice']) {
             $this->user = $options['data'];
             $builder->add('role', ChoiceType::class, [
                 'choices' => $this->getRolesChoices(),
-
             ]);
         }
     }
@@ -68,7 +55,7 @@ class UserType extends AbstractType
     {
         return [
             'Role utilisateur' => 'ROLE_USER',
-            'Role administrateur' => 'ROLE_ADMIN'
+            'Role administrateur' => 'ROLE_ADMIN',
         ];
     }
 }

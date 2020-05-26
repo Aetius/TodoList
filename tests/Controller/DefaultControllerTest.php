@@ -4,7 +4,6 @@ namespace Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Tests\Config\Config;
 use Tests\Repository\UserRepositoryTest;
 use Tests\Security\Connexion;
 

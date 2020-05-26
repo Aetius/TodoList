@@ -12,7 +12,7 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20200513095300 extends AbstractMigration
 {
-    public function getDescription() : string
+    public function getDescription(): string
     {
         return '';
     }
@@ -24,7 +24,7 @@ final class Version20200513095300 extends AbstractMigration
         $users = $db->fetchAll('SELECT * FROM user ');
         if (!is_null($users)) {
             foreach ($users as $user) {
-                if ($user['roles'] === "null") {
+                if ('null' === $user['roles']) {
                     $db->executeQuery('UPDATE user SET roles=JSON_ARRAY("ROLE_USER")');
                 }
             }
@@ -36,20 +36,20 @@ final class Version20200513095300 extends AbstractMigration
         $db->executeQuery("UPDATE task SET user_id = $anonymousId");
     }
 
-    public function up(Schema $schema) : void
+    public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE task CHANGE user_id user_id INT NOT NULL');
         $this->addSql('ALTER TABLE task ADD CONSTRAINT FK_527EDB25A76ED395 FOREIGN KEY (user_id) REFERENCES user (id)');
         $this->addSql('CREATE INDEX IDX_527EDB25A76ED395 ON task (user_id)');
     }
 
-    public function down(Schema $schema) : void
+    public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE task DROP FOREIGN KEY FK_527EDB25A76ED395');
         $this->addSql('DROP INDEX IDX_527EDB25A76ED395 ON task');

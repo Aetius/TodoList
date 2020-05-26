@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Factory;
 
 use App\Entity\Task;
@@ -11,7 +10,8 @@ use PHPUnit\Framework\TestCase;
 class TaskFactoryTest extends TestCase
 {
     protected $user;
-    protected function setUp() :void
+
+    protected function setUp(): void
     {
         $this->user = $this->getMockBuilder("App\Entity\User")
             ->disableOriginalConstructor()

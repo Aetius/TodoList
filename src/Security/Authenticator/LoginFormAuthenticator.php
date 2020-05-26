@@ -25,7 +25,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
     use TargetPathTrait;
 
     private const LOGIN_ROUTE = 'login';
-    private const DEFAULT_TARGET_ROUTE = "homepage";
+    private const DEFAULT_TARGET_ROUTE = 'homepage';
 
     private $entityManager;
     private $urlGenerator;
@@ -37,8 +37,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator implements P
         UrlGeneratorInterface $urlGenerator,
         CsrfTokenManagerInterface $csrfTokenManager,
         UserPasswordEncoderInterface $passwordEncoder
-    )
-    {
+    ) {
         $this->entityManager = $entityManager;
         $this->urlGenerator = $urlGenerator;
         $this->csrfTokenManager = $csrfTokenManager;

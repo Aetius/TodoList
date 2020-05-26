@@ -34,7 +34,7 @@ Before a pull request to the origin project, you have to test the new branch.
 
 ####-	Test validation : 
 Don’t hesitate to consult the tests\test-coverage file to valid that the coverage rate is efficient for your functionality. In the other end, don’t try to have a coverage rate to 100% : it’s not relevant. 
-To start tests : print php bin/phpunit in your terminal. 
+To start tests : print php bin/phpunit in your console. 
 
 ##d)	Standards : 
 ####-	Generality : 

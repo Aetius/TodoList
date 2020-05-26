@@ -32,6 +32,8 @@ fixtures to make another tests.
 and add this user to the tasks already in your database. Then you can modify the fixtures to test your new database. 
 
  
-
+#####To test the project
+- Once the project installed, you can test the project with the command php bin/phpunit
+- The test-coverage is located in /tests/test-coverage. 
 
 

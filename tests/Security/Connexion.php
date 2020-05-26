@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Security;
 
 use App\Entity\User;
@@ -10,17 +9,11 @@ use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 trait Connexion
 {
-
     /**
      * @var
      */
     private $user;
 
-
-    /**
-     * @param KernelBrowser $client
-     * @param User $user
-     */
     public function setAuthorization(KernelBrowser $client, User $user)
     {
         $session = $client->getContainer()->get('session');

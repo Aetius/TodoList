@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repository;
 
 use App\Entity\User;
@@ -15,8 +14,7 @@ use Doctrine\Common\Persistence\ManagerRegistry;
  */
 class UserRepository extends ServiceEntityRepository
 {
-    const ANONYMOUS = "anonymous";
-
+    const ANONYMOUS = 'anonymous';
 
     public function __construct(ManagerRegistry $registry)
     {
@@ -28,28 +26,28 @@ class UserRepository extends ServiceEntityRepository
      */
     public function findLast()
     {
-        return $this->findOneBy([], ['id'=> 'DESC']);
+        return $this->findOneBy([], ['id' => 'DESC']);
     }
 
     public function findAllExceptAnonymous()
     {
-        return($this->createQueryBuilder('p')
+        return $this->createQueryBuilder('p')
         ->where("p.roles LIKE'[\"ROLE_USER\"]'")
         ->orWhere("p.roles LIKE'[\"ROLE_ADMIN\"]'")
            ->getQuery()
-           ->getResult());
+           ->getResult();
     }
+
     /**
-     * @param string $name
      * @return User|null
      */
     public function findOneByName(string $name)
     {
-        return $this->findOneBy(['username'=>$name]);
+        return $this->findOneBy(['username' => $name]);
     }
 
     public function getAnonymous()
     {
-        return $this->findOneBy(['username'=>self::ANONYMOUS]);
+        return $this->findOneBy(['username' => self::ANONYMOUS]);
     }
 }

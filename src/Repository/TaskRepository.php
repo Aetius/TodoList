@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Repository;
 
 use App\Entity\Task;
@@ -22,21 +21,19 @@ class TaskRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param User $user
      * @return Task|null
      */
     public function findOneByUserId(User $user)
     {
-        return $this->findOneBy(['user'=>$user], ['id'=>'DESC']);
+        return $this->findOneBy(['user' => $user], ['id' => 'DESC']);
     }
 
     /**
-     * @param User $user
      * @return Task[]
      */
     public function findAllByUser(User $user)
     {
-        return $this->findBy(['user'=>$user]);
+        return $this->findBy(['user' => $user]);
     }
 
     /**
@@ -44,6 +41,6 @@ class TaskRepository extends ServiceEntityRepository
      */
     public function findAllUsersNull()
     {
-        return $this->findBy(['user'=>null]);
+        return $this->findBy(['user' => null]);
     }
 }

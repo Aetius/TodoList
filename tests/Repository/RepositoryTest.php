@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Repository;
 
 use App\Entity\Task;
@@ -12,7 +11,6 @@ class RepositoryTest extends KernelTestCase
     public function testFindAllUsersNull()
     {
         $kernel = self::bootKernel();
-
 
         /** @var EntityManagerInterface $entityManager */
         $entityManager = $kernel->getContainer()

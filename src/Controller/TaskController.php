@@ -21,6 +21,7 @@ class TaskController extends AbstractController
     public function list(TaskService $service)
     {
         $tasks = $service->show($this->getUser());
+
         return $this->render('task/list.html.twig', ['tasks' => $tasks]);
     }
 
@@ -39,8 +40,10 @@ class TaskController extends AbstractController
             $service->save($task);
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
+
             return $this->redirectToRoute('task_list');
         }
+
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
@@ -58,8 +61,10 @@ class TaskController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $service->save($task);
             $this->addFlash('success', 'La tâche a bien été modifiée.');
+
             return $this->redirectToRoute('task_list');
         }
+
         return $this->render('task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
@@ -73,7 +78,7 @@ class TaskController extends AbstractController
      */
     public function toggleTask(Task $task, TaskService $service, Request $request)
     {
-        if ($this->isCsrfTokenValid('toggle-'.$task->getId(), $request->get('token'))){
+        if ($this->isCsrfTokenValid('toggle-'.$task->getId(), $request->get('token'))) {
             $task = $service->updateToggle($task);
             $service->save($task);
             $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
@@ -89,7 +94,7 @@ class TaskController extends AbstractController
      */
     public function deleteTask(Task $task, TaskService $service, Request $request)
     {
-        if ($this->isCsrfTokenValid('delete-'.$task->getId(), $request->get('token'))){
+        if ($this->isCsrfTokenValid('delete-'.$task->getId(), $request->get('token'))) {
             $service->delete($task);
             $this->addFlash('success', 'La tâche a bien été supprimée.');
         }

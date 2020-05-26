@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Fixtures\Processor;
 
 use App\Entity\User;
@@ -24,7 +23,7 @@ class UserProcessor implements ProcessorInterface
         if (false === $object instanceof User) {
             return;
         }
-        /** @var User $object */
+        /* @var User $object */
         $object->setPassword($this->encoder->encodePassword($object, $object->getPassword()));
     }
 

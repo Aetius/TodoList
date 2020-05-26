@@ -1,16 +1,10 @@
 <?php
 
-
 namespace Tests\Entity;
 
 use App\Entity\Task;
 use App\Entity\User;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
-use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
-use Symfony\Component\Validator\Violation\ConstraintViolationBuilderInterface;
 
 class TaskTest extends KernelTestCase
 {
@@ -21,15 +15,13 @@ class TaskTest extends KernelTestCase
         $this->assertTrue($task->getCreatedAt() instanceof \DateTime);
     }
 
-
     public function testEntityNokEntriesBlank()
     {
         $task = $this->getEntity();
-        $task->setTitle("")
-            ->setContent("");
+        $task->setTitle('')
+            ->setContent('');
         $this->assertHasErrors($task, 2);
     }
-
 
     public function testEntityNokWithoutUser()
     {
@@ -38,8 +30,6 @@ class TaskTest extends KernelTestCase
             ->setTitle('Some title');
         $this->assertHasErrors($task, 1);
     }
-
-
 
     /**** Methods for the validation *****/
     public function getEntity()
@@ -57,14 +47,12 @@ class TaskTest extends KernelTestCase
             ->setUser($user);
     }
 
-
     public function assertHasErrors(Task $task, int $numberErrorsExpecting)
     {
         self::bootKernel();
         $error = self::$container->get('validator')->validate($task);
         $this->assertCount($numberErrorsExpecting, $error);
     }
-
 
     public function testUpdateSetDate()
     {
@@ -76,7 +64,7 @@ class TaskTest extends KernelTestCase
     public function testUpdateSetDateNok()
     {
         $task = new Task();
-        $task->setCreatedAt("01/02/2020");
+        $task->setCreatedAt('01/02/2020');
         $this->assertFalse($task->getCreatedAt() instanceof \DateTime);
     }
 }

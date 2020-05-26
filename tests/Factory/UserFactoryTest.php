@@ -1,18 +1,16 @@
 <?php
 
-
 namespace Tests\Factory;
 
-use App\Entity\Task;
 use App\Entity\User;
-use App\Factory\TaskFactory;
 use App\Factory\UserFactory;
 use PHPUnit\Framework\TestCase;
 
 class UserFactoryTest extends TestCase
 {
     protected $user;
-    protected function setUp() :void
+
+    protected function setUp(): void
     {
         $this->user = $this->getMockBuilder("App\Entity\User")
             ->disableOriginalConstructor()
@@ -21,7 +19,7 @@ class UserFactoryTest extends TestCase
 
     public function testNewUserByRoleUser()
     {
-        $this->user->method('getRoles')->willReturn(["ROLE_USER"]);
+        $this->user->method('getRoles')->willReturn(['ROLE_USER']);
 
         $factory = new UserFactory();
         $newUser = $factory->create($this->user);
@@ -32,7 +30,7 @@ class UserFactoryTest extends TestCase
 
     public function testNewUserByRoleAdmin()
     {
-        $this->user->method('getRoles')->willReturn(["ROLE_ADMIN"]);
+        $this->user->method('getRoles')->willReturn(['ROLE_ADMIN']);
 
         $factory = new UserFactory();
         $newUser = $factory->create($this->user);

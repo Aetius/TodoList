@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Services;
 
 use App\Entity\Task;
@@ -26,13 +25,13 @@ class TaskServiceTest extends KernelTestCase
         $this->userAnonynous = $this->createMock(User::class);
         $this->userAnonynous->method('getId')->willReturn('3');
         $this->userAnonynous->method('getUsername')->willReturn(UserRepository::ANONYMOUS);
-        $this->userAnonynous->method('getRoles')->willReturn(["ROLE_ANONYMOUS"]);
+        $this->userAnonynous->method('getRoles')->willReturn(['ROLE_ANONYMOUS']);
 
         $this->em = $this->createMock(EntityManagerInterface::class);
 
         $this->tasks = [
-            "task1" => new Task(),
-            "task2" => new Task()
+            'task1' => new Task(),
+            'task2' => new Task(),
         ];
 
         $this->taskRepository = $this->createMock(TaskRepository::class);
@@ -40,7 +39,6 @@ class TaskServiceTest extends KernelTestCase
 
         $this->userRepository = $this->createMock(UserRepository::class);
     }
-
 
     public function testShowRoleAdminOk()
     {
@@ -68,7 +66,7 @@ class TaskServiceTest extends KernelTestCase
     {
         $service = new TaskService($this->em, $this->taskRepository, $this->userRepository);
         $this->expectException(\Exception::class);
-        $user = new User;
+        $user = new User();
         $user->setRoles(['ROLE_FALSE']);
         $service->show($user);
     }

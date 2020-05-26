@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Service;
 
 use App\Entity\User;
@@ -34,10 +33,11 @@ class UserService
     {
         $password = $this->encoder->encodePassword($user, $user->getPassword());
         $user->setPassword($password);
+
         return $user;
     }
 
-    public function save(User$user)
+    public function save(User $user)
     {
         $this->em->persist($user);
         $this->em->flush();
@@ -46,6 +46,7 @@ class UserService
     public function getUsers()
     {
         $users = $this->repository->findAllExceptAnonymous();
+
         return $users;
     }
 }

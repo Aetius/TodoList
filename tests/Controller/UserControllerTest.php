@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -56,10 +55,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["user[username]"] = "test";
-        $form["user[password][first]"] = "test";
-        $form["user[password][second]"] = "test";
-        $form["user[email]"] = "test@test.fr";
+        $form['user[username]'] = 'test';
+        $form['user[password][first]'] = 'test';
+        $form['user[password][second]'] = 'test';
+        $form['user[email]'] = 'test@test.fr';
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }
@@ -73,11 +72,11 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["user[username]"] = "test";
-        $form["user[password][first]"] = "test";
-        $form["user[password][second]"] = "test";
-        $form["user[email]"] = "test@test.fr";
-        $form["user[role]"] = "ROLE_ADMIN";
+        $form['user[username]'] = 'test';
+        $form['user[password][first]'] = 'test';
+        $form['user[password][second]'] = 'test';
+        $form['user[email]'] = 'test@test.fr';
+        $form['user[role]'] = 'ROLE_ADMIN';
 
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
@@ -91,10 +90,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["user[username]"] = "demo";
-        $form["user[password][first]"] = "test";
-        $form["user[password][second]"] = "test";
-        $form["user[email]"] = "test@test.fr";
+        $form['user[username]'] = 'demo';
+        $form['user[password][first]'] = 'test';
+        $form['user[password][second]'] = 'test';
+        $form['user[email]'] = 'test@test.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -107,10 +106,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["user[username]"] = "test";
-        $form["user[password][first]"] = "test";
-        $form["user[password][second]"] = "test";
-        $form["user[email]"] = "demo@demo.fr";
+        $form['user[username]'] = 'test';
+        $form['user[password][first]'] = 'test';
+        $form['user[password][second]'] = 'test';
+        $form['user[email]'] = 'demo@demo.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -123,15 +122,13 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["user[username]"] = "test";
-        $form["user[password][first]"] = "test";
-        $form["user[password][second]"] = "failed";
-        $form["user[email]"] = "test@test.fr";
+        $form['user[username]'] = 'test';
+        $form['user[password][first]'] = 'test';
+        $form['user[password][second]'] = 'failed';
+        $form['user[email]'] = 'test@test.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
-
-
 
     /**** Edit Actions   *****/
     public function testEditActionOkRoleAdmin()
@@ -143,11 +140,11 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["user[username]"] = "demo2";
-        $form["user[password][first]"] = "demo";
-        $form["user[password][second]"] = "demo";
-        $form["user[email]"] = "demo2@demo.fr";
-        $form["user[role]"] = "ROLE_ADMIN";
+        $form['user[username]'] = 'demo2';
+        $form['user[password][first]'] = 'demo';
+        $form['user[password][second]'] = 'demo';
+        $form['user[email]'] = 'demo2@demo.fr';
+        $form['user[role]'] = 'ROLE_ADMIN';
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }
@@ -161,10 +158,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["user[username]"] = "demo2";
-        $form["user[password][first]"] = "demo";
-        $form["user[password][second]"] = "demo";
-        $form["user[email]"] = "demo2@demo.fr";
+        $form['user[username]'] = 'demo2';
+        $form['user[password][first]'] = 'demo';
+        $form['user[password][second]'] = 'demo';
+        $form['user[email]'] = 'demo2@demo.fr';
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
     }
@@ -177,29 +174,28 @@ class UserControllerTest extends WebTestCase
         $crawler = $this->client->request('GET', '/users/2/edit');
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
 
-
         $token = ($this->client->getContainer()->get('security.csrf.token_manager')->getToken('user')->getValue());
         $crawler = $this->client->request(
             'POST',
             '/users/2/edit',
             [
-                'user'=>[
-                    'username'=>'demo2',
-                    "password"=>[
-                        "first" =>'demo',
-                        "second"=>'demo'
+                'user' => [
+                    'username' => 'demo2',
+                    'password' => [
+                        'first' => 'demo',
+                        'second' => 'demo',
                     ],
-                    'email'=> 'demo2@demo.fr',
-                    'roles'=> 'ROLE_ADMIN',
-                    '_token'=>$token
-                ]
+                    'email' => 'demo2@demo.fr',
+                    'roles' => 'ROLE_ADMIN',
+                    '_token' => $token,
+                ],
             ],
         );
         $this->assertEquals(1, $crawler->filter('html:contains("This form should not contain extra fields.")')->count());
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
-    //This form should not contain extra fields.
 
+    //This form should not contain extra fields.
 
     public function testEditActionNokUserAlreadyUsed()
     {
@@ -209,10 +205,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["user[username]"] = "demo2";
-        $form["user[password][first]"] = "demo";
-        $form["user[password][second]"] = "demo";
-        $form["user[email]"] = "demo@demo.fr";
+        $form['user[username]'] = 'demo2';
+        $form['user[password][first]'] = 'demo';
+        $form['user[password][second]'] = 'demo';
+        $form['user[email]'] = 'demo@demo.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -225,10 +221,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["user[username]"] = "demo";
-        $form["user[password][first]"] = "demo";
-        $form["user[password][second]"] = "demo";
-        $form["user[email]"] = "demo2@demo.fr";
+        $form['user[username]'] = 'demo';
+        $form['user[password][first]'] = 'demo';
+        $form['user[password][second]'] = 'demo';
+        $form['user[email]'] = 'demo2@demo.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -241,10 +237,10 @@ class UserControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["user[username]"] = "demo";
-        $form["user[password][first]"] = "demo";
-        $form["user[password][second]"] = "failed";
-        $form["user[email]"] = "demo@demo.fr";
+        $form['user[username]'] = 'demo';
+        $form['user[password][first]'] = 'demo';
+        $form['user[password][second]'] = 'failed';
+        $form['user[email]'] = 'demo@demo.fr';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }

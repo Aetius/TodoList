@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -45,7 +44,6 @@ class TaskControllerTest extends WebTestCase
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
 
-
     /**** task create  ****/
     public function testCreateActionOk()
     {
@@ -56,8 +54,8 @@ class TaskControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["task[title]"] = "test";
-        $form["task[content]"] = "test";
+        $form['task[title]'] = 'test';
+        $form['task[content]'] = 'test';
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
@@ -76,11 +74,11 @@ class TaskControllerTest extends WebTestCase
             'POST',
             '/tasks/create',
             [
-                'task'=>[
-                    'title'=>'test',
-                    'content'=>'test',
-                   '_token'=>$token
-                ]
+                'task' => [
+                    'title' => 'test',
+                    'content' => 'test',
+                   '_token' => $token,
+                ],
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
@@ -95,8 +93,8 @@ class TaskControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Ajouter');
         $form = $button->form();
-        $form["task[title]"] = "";
-        $form["task[content]"] = "";
+        $form['task[title]'] = '';
+        $form['task[content]'] = '';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -112,8 +110,8 @@ class TaskControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["task[title]"] = "test";
-        $form["task[content]"] = "test";
+        $form['task[title]'] = 'test';
+        $form['task[content]'] = 'test';
         $this->client->submit($form);
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
@@ -134,8 +132,8 @@ class TaskControllerTest extends WebTestCase
 
         $button = $crawler->selectButton('Modifier');
         $form = $button->form();
-        $form["task[title]"] = "";
-        $form["task[content]"] = "";
+        $form['task[title]'] = '';
+        $form['task[content]'] = '';
         $this->client->submit($form);
         $this->assertEquals(200, $this->client->getResponse()->getStatusCode());
     }
@@ -147,17 +145,16 @@ class TaskControllerTest extends WebTestCase
             'POST',
             '/tasks/1/edit',
             [
-                'task'=>[
-                    'title'=>'test',
-                    'content'=>'test',
-                    '_token'=>$token
-                ]
+                'task' => [
+                    'title' => 'test',
+                    'content' => 'test',
+                    '_token' => $token,
+                ],
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/login'));
     }
-
 
     /**** Delete Task ****/
     public function testDeleteTaskActionByOwnerTaskOk()
@@ -171,7 +168,7 @@ class TaskControllerTest extends WebTestCase
             'POST',
             "/tasks/$taskId/delete",
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
@@ -182,13 +179,13 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $token = $this->getCsrfToken($this->client, "1", 'toggle');
+        $token = $this->getCsrfToken($this->client, '1', 'toggle');
 
         $this->client->request(
             'POST',
-            "/tasks/1/delete",
+            '/tasks/1/delete',
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
@@ -196,12 +193,12 @@ class TaskControllerTest extends WebTestCase
 
     public function testDeleteTaskActionNokWithoutAuthorization()
     {
-        $token = $this->getCsrfToken($this->client, "1", 'toggle');
+        $token = $this->getCsrfToken($this->client, '1', 'toggle');
         $this->client->request(
             'POST',
             '/tasks/1/delete',
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
@@ -220,13 +217,12 @@ class TaskControllerTest extends WebTestCase
             'POST',
             "/tasks/$taskId/delete",
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
-
 
     /**** Task toggle ****/
 
@@ -240,7 +236,7 @@ class TaskControllerTest extends WebTestCase
             'POST',
             "/tasks/$taskId/toggle",
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
@@ -251,12 +247,12 @@ class TaskControllerTest extends WebTestCase
     {
         $user = $this->findLastUser($this->client);
         $this->setAuthorization($this->client, $user);
-        $token = $this->getCsrfToken($this->client, "1", 'toggle');
+        $token = $this->getCsrfToken($this->client, '1', 'toggle');
         $this->client->request(
             'POST',
             '/tasks/1/toggle',
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(403, $this->client->getResponse()->getStatusCode());
@@ -264,12 +260,12 @@ class TaskControllerTest extends WebTestCase
 
     public function testToggleTaskActionNokWithoutAuthorization()
     {
-        $token = $this->getCsrfToken($this->client, "1", 'toggle');
+        $token = $this->getCsrfToken($this->client, '1', 'toggle');
         $this->client->request(
             'POST',
             '/tasks/1/toggle',
             [
-                'token'=>$token
+                'token' => $token,
             ],
         );
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
@@ -289,5 +285,4 @@ class TaskControllerTest extends WebTestCase
         $this->assertEquals(302, $this->client->getResponse()->getStatusCode());
         $this->assertTrue($this->client->getResponse()->isRedirect('/tasks'));
     }
-
 }

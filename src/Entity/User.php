@@ -5,7 +5,6 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use phpDocumentor\Reflection\Types\Self_;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,8 +20,8 @@ use Symfony\Component\Validator\Constraints as Assert;
 class User implements UserInterface
 {
     public const ROLES = [
-        "ROLE_USER"=>"Role utilisateur",
-        "ROLE_ADMIN"=>"Role administrateur"
+        'ROLE_USER' => 'Role utilisateur',
+        'ROLE_ADMIN' => 'Role administrateur',
     ];
 
     /**
@@ -66,7 +65,6 @@ class User implements UserInterface
      */
     private $tasks;
 
-
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
@@ -86,6 +84,7 @@ class User implements UserInterface
     public function setUsername($username)
     {
         $this->username = $username;
+
         return $this;
     }
 
@@ -101,6 +100,7 @@ class User implements UserInterface
     public function setPassword($password)
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -112,9 +112,9 @@ class User implements UserInterface
     public function setEmail($email)
     {
         $this->email = $email;
+
         return $this;
     }
-
 
     public function eraseCredentials()
     {
@@ -140,6 +140,7 @@ class User implements UserInterface
     public function setRole($role)
     {
         $this->roles = [$role];
+
         return $this;
     }
 

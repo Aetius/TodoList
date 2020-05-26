@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Command;
 
 use App\Entity\User;
@@ -13,7 +12,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class JoinUserToTaskCommand extends Command
 {
-
     /**
      * @var UserRepository
      */
@@ -32,14 +30,12 @@ class JoinUserToTaskCommand extends Command
         TaskRepository $taskRepository,
         EntityManagerInterface $em,
         string $name = null
-    )
-    {
+    ) {
         $this->userRepository = $userRepository;
         $this->em = $em;
         $this->taskRepository = $taskRepository;
         parent::__construct($name);
     }
-
 
     protected static $defaultName = 'app:add-anonymous-user-to-table';
 
@@ -49,15 +45,13 @@ class JoinUserToTaskCommand extends Command
     }
 
     /**
-     * @param InputInterface $input
-     * @param OutputInterface $output
      * @return int|void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $user = $this->anonymousUser();
         $tasks = $this->addUserToTask($user);
-        $output->writeln(count($tasks)." modification(s) have been done.");
+        $output->writeln(count($tasks).' modification(s) have been done.');
     }
 
     /**
@@ -66,20 +60,20 @@ class JoinUserToTaskCommand extends Command
     private function anonymousUser()
     {
         $user = $this->userRepository->getAnonymous();
-        if (($user === null)) {
+        if ((null === $user)) {
             $user = (new User())
                 ->setUsername(UserRepository::ANONYMOUS)
-                ->setEmail("anonymous@anonymous.fr")
+                ->setEmail('anonymous@anonymous.fr')
                 ->setPassword(UserRepository::ANONYMOUS)
                 ->setRoles(['ROLE_ANONYMOUS']);
             $this->em->persist($user);
             $this->em->flush();
         }
+
         return $user;
     }
 
     /**
-     * @param User $user
      * @return \App\Entity\Task[]
      */
     private function addUserToTask(User $user)
@@ -89,6 +83,7 @@ class JoinUserToTaskCommand extends Command
             $task->setUser($user);
         }
         $this->em->flush();
+
         return $tasks;
     }
 }

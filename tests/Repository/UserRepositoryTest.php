@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Tests\Repository;
 
 use App\Entity\User;
@@ -9,9 +8,7 @@ use Symfony\Bundle\FrameworkBundle\KernelBrowser;
 
 trait UserRepositoryTest
 {
-
     /**
-     * @param KernelBrowser $client
      * @return User|null
      */
     public function findLastUser(KernelBrowser $client)
@@ -25,13 +22,11 @@ trait UserRepositoryTest
         $user = $entityManager
             ->getRepository(User::class)
             ->findLast();
+
         return $user;
     }
 
-
     /**
-     * @param KernelBrowser $client
-     * @param string $name
      * @return User|null
      */
     public function findOneByName(KernelBrowser $client, string $name)
@@ -45,13 +40,13 @@ trait UserRepositoryTest
         $user = $entityManager
             ->getRepository(User::class)
             ->findOneByName($name);
+
         return $user;
     }
 
-
     /**
-     * @param KernelBrowser $client
      * @param string $name
+     *
      * @return User|null
      */
     public function findByRole(KernelBrowser $client, string $role)
@@ -65,6 +60,7 @@ trait UserRepositoryTest
         $user = $entityManager
             ->getRepository(User::class)
             ->findByRole($role);
+
         return $user;
     }
 }
