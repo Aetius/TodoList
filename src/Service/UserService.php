@@ -37,6 +37,16 @@ class UserService
         return $user;
     }
 
+    public function update(User $user, string $clearPassword = null)
+    {
+        if ($clearPassword !== null){
+            $password = $this->encoder->encodePassword($user, $clearPassword);
+            $user->setPassword($password);
+        }
+
+        return $user;
+    }
+
     public function save(User $user)
     {
         $this->em->persist($user);
