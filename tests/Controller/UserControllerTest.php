@@ -60,7 +60,7 @@ class UserControllerTest extends WebTestCase
         $form['user[password][second]'] = 'test';
         $form['user[email]'] = 'test@test.fr';
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/'));
     }
 
     public function testCreateActionOkWithRoleAdmin()
@@ -79,7 +79,7 @@ class UserControllerTest extends WebTestCase
         $form['user[role]'] = 'ROLE_ADMIN';
 
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/'));
     }
 
     public function testCreateActionNokUserAlreadyUsed()
@@ -146,7 +146,7 @@ class UserControllerTest extends WebTestCase
         $form['user[email]'] = 'demo2@demo.fr';
         $form['user[role]'] = 'ROLE_ADMIN';
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/'));
     }
 
     public function testEditActionOkRoleUser()
@@ -163,7 +163,7 @@ class UserControllerTest extends WebTestCase
         $form['user[password][second]'] = 'demo';
         $form['user[email]'] = 'demo2@demo.fr';
         $this->client->submit($form);
-        $this->assertTrue($this->client->getResponse()->isRedirect('/users'));
+        $this->assertTrue($this->client->getResponse()->isRedirect('/'));
     }
 
     public function testEditActionNokRoleUserTryChangeRole()
