@@ -37,9 +37,9 @@ class UserService
         return $user;
     }
 
-    public function update(User $user, string $clearPassword = null)
+    public function update(User $user, string $clearPassword)
     {
-        if ($clearPassword !== null){
+        if (!empty ($clearPassword) ){
             $password = $this->encoder->encodePassword($user, $clearPassword);
             $user->setPassword($password);
         }
